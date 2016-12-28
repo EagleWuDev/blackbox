@@ -21,9 +21,9 @@ var app = React.createClass({
         <Scene key='root'>
           <Scene hideNavBar={true} key='Archive' component={Archive} title='Archive' />
           <Scene hideNavBar={true} key='History' component={History} title='History' />
-          <Scene hideNavBar={true} key='Login' component={Login} title='Login' initial={true} />
+          <Scene hideNavBar={true} key='Login' component={Login} title='Login' />
           <Scene hideNavBar={true} key='Signup' component={Signup} title='Signup' />
-          <Scene hideNavBar={true} key='Stream' component={Stream} title='Stream' />
+          <Scene hideNavBar={true} key='Stream' component={Stream} title='Stream' initial={true} />
         </Scene>
       </Router>
     )

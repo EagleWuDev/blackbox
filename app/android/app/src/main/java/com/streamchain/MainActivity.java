@@ -1,6 +1,8 @@
 package com.streamchain;
 
 import com.facebook.react.ReactActivity;
+import com.pili.rnpili.PiliPackage;
+import com.microsoft.codepush.react.CodePush;
 
 public class MainActivity extends ReactActivity {
 
