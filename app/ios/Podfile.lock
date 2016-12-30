@@ -1,0 +1,51 @@
+PODS:
+  - HappyDNS (0.3.10)
+  - pili-librtmp (1.0.4)
+  - PLMediaStreamingKit (2.1.1):
+    - HappyDNS (~> 0.3.0)
+    - pili-librtmp (= 1.0.4)
+    - PLMediaStreamingKit/Common (= 2.1.1)
+    - PLMediaStreamingKit/PLCameraStreamingKit (= 2.1.1)
+    - PLMediaStreamingKit/PLStreamingKit (= 2.1.1)
+  - PLMediaStreamingKit/Common (2.1.1):
+    - HappyDNS (~> 0.3.0)
+    - pili-librtmp (= 1.0.4)
+  - PLMediaStreamingKit/PLCameraStreamingKit (2.1.1):
+    - HappyDNS (~> 0.3.0)
+    - pili-librtmp (= 1.0.4)
+  - PLMediaStreamingKit/PLStreamingKit (2.1.1):
+    - HappyDNS (~> 0.3.0)
+    - pili-librtmp (= 1.0.4)
+  - PLPlayerKit (2.2.4):
+    - HappyDNS (~> 0.3.10)
+    - pili-librtmp (= 1.0.4)
+    - PLPlayerKit/precompiled (= 2.2.4)
+  - PLPlayerKit/precompiled (2.2.4):
+    - HappyDNS (~> 0.3.10)
+    - pili-librtmp (= 1.0.4)
+  - RCTPili (2.0.0):
+    - PLMediaStreamingKit
+    - PLPlayerKit
+    - React
+
+DEPENDENCIES:
+  - PLMediaStreamingKit
+  - PLPlayerKit
+  - RCTPili (from `../js/node_modules/react-native-pili/ios/RCTPili`)
+
+EXTERNAL SOURCES:
+  RCTPili:
+    :path: "../node_modules/react-native-pili/ios/RCTPili"
+  React:
+    :path: "../node_modules/react-native"
+
+SPEC CHECKSUMS:
+  HappyDNS: 06a9fed2796663fd87626dbf02552933265bf059
+  pili-librtmp: bc768bc3971edad732fd5e66f0ee991fa1a0a257
+  PLMediaStreamingKit: 64d4416ad8a39b3e63515cea52face395d048614
+  PLPlayerKit: 30e419fa90e84df34922e6dd5d5833d7e4348bf4
+  RCTPili: e32f78dd50a82314871f4a3813eac867ec25d45c
+
+PODFILE CHECKSUM: 6dcc4d5c3cd713de093d93e95ab56fe589c8045c
+
+COCOAPODS: 1.0.1
