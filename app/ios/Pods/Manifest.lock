@@ -1,0 +1,83 @@
+PODS:
+  - HappyDNS (0.3.10)
+  - pili-librtmp (1.0.4)
+  - PLMediaStreamingKit (2.1.1):
+    - HappyDNS (~> 0.3.0)
+    - pili-librtmp (= 1.0.4)
+    - PLMediaStreamingKit/Common (= 2.1.1)
+    - PLMediaStreamingKit/PLCameraStreamingKit (= 2.1.1)
+    - PLMediaStreamingKit/PLStreamingKit (= 2.1.1)
+  - PLMediaStreamingKit/Common (2.1.1):
+    - HappyDNS (~> 0.3.0)
+    - pili-librtmp (= 1.0.4)
+  - PLMediaStreamingKit/PLCameraStreamingKit (2.1.1):
+    - HappyDNS (~> 0.3.0)
+    - pili-librtmp (= 1.0.4)
+  - PLMediaStreamingKit/PLStreamingKit (2.1.1):
+    - HappyDNS (~> 0.3.0)
+    - pili-librtmp (= 1.0.4)
+  - PLPlayerKit (2.2.4):
+    - HappyDNS (~> 0.3.10)
+    - pili-librtmp (= 1.0.4)
+    - PLPlayerKit/precompiled (= 2.2.4)
+  - PLPlayerKit/precompiled (2.2.4):
+    - HappyDNS (~> 0.3.10)
+    - pili-librtmp (= 1.0.4)
+  - RCTPili (2.0.0):
+    - PLMediaStreamingKit
+    - PLPlayerKit
+    - React
+  - React (0.33.0):
+    - React/Core (= 0.33.0)
+  - React/ART (0.33.0):
+    - React/Core
+  - React/Core (0.33.0):
+    - React/CSSLayout
+  - React/CSSLayout (0.33.0)
+  - React/RCTActionSheet (0.33.0):
+    - React/Core
+  - React/RCTGeolocation (0.33.0):
+    - React/Core
+  - React/RCTImage (0.33.0):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTNetwork (0.33.0):
+    - React/Core
+  - React/RCTText (0.33.0):
+    - React/Core
+  - React/RCTVibration (0.33.0):
+    - React/Core
+  - React/RCTWebSocket (0.33.0):
+    - React/Core
+
+DEPENDENCIES:
+  - PLMediaStreamingKit
+  - PLPlayerKit
+  - RCTPili (from `../js/node_modules/react-native-pili/ios/RCTPili`)
+  - React/ART (from `../js/node_modules/react-native`)
+  - React/Core (from `../js/node_modules/react-native`)
+  - React/RCTActionSheet (from `../js/node_modules/react-native`)
+  - React/RCTGeolocation (from `../js/node_modules/react-native`)
+  - React/RCTImage (from `../js/node_modules/react-native`)
+  - React/RCTNetwork (from `../js/node_modules/react-native`)
+  - React/RCTText (from `../js/node_modules/react-native`)
+  - React/RCTVibration (from `../js/node_modules/react-native`)
+  - React/RCTWebSocket (from `../js/node_modules/react-native`)
+
+EXTERNAL SOURCES:
+  RCTPili:
+    :path: "../js/node_modules/react-native-pili/ios/RCTPili"
+  React:
+    :path: "../js/node_modules/react-native"
+
+SPEC CHECKSUMS:
+  HappyDNS: 06a9fed2796663fd87626dbf02552933265bf059
+  pili-librtmp: bc768bc3971edad732fd5e66f0ee991fa1a0a257
+  PLMediaStreamingKit: 64d4416ad8a39b3e63515cea52face395d048614
+  PLPlayerKit: 30e419fa90e84df34922e6dd5d5833d7e4348bf4
+  RCTPili: e32f78dd50a82314871f4a3813eac867ec25d45c
+  React: 46edc166689ba71b0b6cf11e64dbdb258d177089
+
+PODFILE CHECKSUM: 6dcc4d5c3cd713de093d93e95ab56fe589c8045c
+
+COCOAPODS: 1.0.1

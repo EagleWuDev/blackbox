@@ -1,6 +1,8 @@
 rootProject.name = 'streamchain'
 
 include ':app'
+include ':react-native-permissions'
+project(':react-native-permissions').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-permissions/android')
 include ':react-native-pili'
 project(':react-native-pili').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-pili/android')
 include ':react-native-code-push'

@@ -1,11 +1,6 @@
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AppRegistry } from 'react-native';
 import { Router, Scene, Actions, Modal } from 'react-native-router-flux';
 
 const Archive = require('./components/archive/index');

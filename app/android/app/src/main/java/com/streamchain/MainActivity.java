@@ -1,6 +1,7 @@
 package com.streamchain;
 
 import com.facebook.react.ReactActivity;
+import com.joshblour.reactnativepermissions.ReactNativePermissionsPackage;
 import com.pili.rnpili.PiliPackage;
 import com.microsoft.codepush.react.CodePush;
 

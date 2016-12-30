@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 module.exports = StyleSheet.create({
-    container: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#2e2e2e',
   },
   welcome: {
     fontSize: 20,
