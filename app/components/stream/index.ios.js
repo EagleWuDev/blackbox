@@ -6,7 +6,9 @@ import {
   View,
   Dimensions,
   TouchableHighlight,
-  Alert
+  Alert,
+  StatusBar,
+  TouchableOpacity
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Pili, {
@@ -26,12 +28,13 @@ module.exports = React.createClass({
   getInitialState() {
     return {
       muted: false,
-      started: true,
+      started: false,
       text: '...',
       focus:true,
       zoom: 1,
       cameraPermission: 'undetermined',
-      microphonePermission: 'undetermined'
+      microphonePermission: 'undetermined',
+      rtmpURL: ''
     }
   },
   componentWillMount() {
@@ -68,11 +71,28 @@ module.exports = React.createClass({
       })
     });
   },
+  toggleStream() {
+    if (this.state.started) { // reset rtmp token and stop stream
+      this.setState({
+        started: false,
+        rtmpTOKEN: ''
+      })
+    } else { // get rtmp token and start stream
+      fetch('http://47.20.7.26:29061/token').then(resp => resp.json()).then(data => {
+        this.setState({
+          rtmpTOKEN: data.token,
+          started: true
+        })
+      }).catch(err => Alert.alert('Network Request Failed'))
+    }
+  },
+          // rtmpURL={"rtmp://pili-publish.pilitest.qiniucdn.com/pilitest/demo_test?key=6eeee8a82246636e"}
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.container} >
+        <StatusBar barStyle="light-content" />
         <Streaming
-          rtmpURL={"rtmp://pili-publish.pilitest.qiniucdn.com/pilitest/demo_test?key=6eeee8a82246636e"}
+          rtmpURL={`rtmp://47.20.7.26:42916/myapp?token=${this.state.rtmpTOKEN}`}
           style={{
             height:height,
             width:width,
@@ -94,20 +114,23 @@ module.exports = React.createClass({
           started={this.state.started}
           onReady={()=>this.setState({text: "onReady"})} //onReady event
           onConnecting={()=>this.setState({text: "onConnecting"})} //onConnecting event
-          onStreaming={()=>this.setState({text: "onStreaming"})} //onStreaming event
+          onStreaming={()=>this.setState({text: "onStreaming", started: true})} //onStreaming event
           onShutdown={()=>this.setState({text: "onShutdown"})} //onShutdown event
           onIOError={()=>this.setState({text: "onIOError"})} //onIOError event
           onDisconnected={()=>this.setState({text: "onDisconnected"})} //onDisconnected event
         />
-        <View style={{position:'absolute',left:50,top:50,width:200,height:200}}>
-          <Text>{this.state.text}</Text>
-          <TouchableHighlight onPress={() => this.zoom(1)}>
-            <Text style={{height:100,width:100}}>+</Text>
-          </TouchableHighlight>
-          <TouchableHighlight onPress={() => this.zoom(-1)}>
-            <Text style={{height:100,width:100}}>-</Text>
-          </TouchableHighlight>
+        <View style={styles.streamBar}>
+          <Text style={{color: '#eee',textAlign: 'center'}}>{this.state.text}</Text>
+          <View style={{flexDirection: 'row'}}>
+            <TouchableHighlight onPress={() => this.zoom(1)}>
+              <Text style={styles.zoom}>zoom+</Text>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={() => this.zoom(-1)}>
+              <Text style={[styles.zoom, {textAlign: 'right'}]}>zoom-</Text>
+            </TouchableHighlight>
+          </View>
         </View>
+        <TouchableOpacity onPress={this.toggleStream} style={[styles.streamButton, {backgroundColor: this.state.started ? '#eb3c00' : '#eee'}]}/>
       </View>
     );
   },

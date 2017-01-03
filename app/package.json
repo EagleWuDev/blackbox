@@ -16,7 +16,8 @@
     "react-native-dismiss-keyboard": "^1.0.0",
     "react-native-permissions": "^0.2.5",
     "react-native-pili": "^2.3.0",
-    "react-native-router-flux": "^3.37.0"
+    "react-native-router-flux": "^3.37.0",
+    "react-native-video-stream": "0.0.3"
   },
   "devDependencies": {
     "babel-jest": "18.0.0",

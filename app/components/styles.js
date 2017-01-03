@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const {height, width} = Dimensions.get('window');
 
 module.exports = StyleSheet.create({
   container: {
@@ -14,7 +16,27 @@ module.exports = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+    color: '#eee',
     marginBottom: 5,
+  },
+  streamBar: {
+    position:'absolute',
+    left: 50,
+    top: 50,
+    width: width-100,
+    flexDirection: 'column'
+  },
+  zoom: {
+    height: 100,
+    width: (width-100)/2,
+    color:'#eee'
+  },
+  streamButton: {
+    position: 'absolute',
+    bottom: 25,
+    width: 30,
+    height: 30,
+    left: (width/2)-15,
+    borderRadius: 15
   }
 })
