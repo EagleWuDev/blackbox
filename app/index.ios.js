@@ -7,7 +7,7 @@ const Archive = require('./components/archive/index');
 const History = require('./components/history/index');
 const Login   = require('./components/login/index');
 const Signup  = require('./components/signup/index');
-const Stream  = require('./components/stream/index');
+// const Stream  = require('./components/stream/index');
 const Camera  = require('./components/camera/index');
 
 var app = React.createClass({
@@ -19,7 +19,6 @@ var app = React.createClass({
           <Scene hideNavBar={true} key='History' component={History} title='History' />
           <Scene hideNavBar={true} key='Login' component={Login} title='Login' />
           <Scene hideNavBar={true} key='Signup' component={Signup} title='Signup' />
-          <Scene hideNavBar={true} key='Stream' component={Stream} title='Stream' initial={false} />
           <Scene hideNavBar={true} key='Camera' component={Camera} title='Camera' initial={true} />
         </Scene>
       </Router>

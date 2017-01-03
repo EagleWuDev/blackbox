@@ -34,9 +34,25 @@ module.exports = StyleSheet.create({
   streamButton: {
     position: 'absolute',
     bottom: 25,
-    width: 30,
-    height: 30,
-    left: (width/2)-15,
-    borderRadius: 15
+    width: 50,
+    height: 50,
+    left: (width/2)-25,
+    borderRadius: 25,
+  },
+  secondaryStreamButton: {
+    position: 'absolute',
+    bottom: 21,
+    width: 58,
+    height: 58,
+    left: (width/2)-29,
+    borderRadius: 29,
+    borderWidth: 2
+  },
+  camera: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: height,
+    width: width
   }
 })
