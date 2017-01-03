@@ -27,9 +27,5 @@ target 'streamchain' do
   pod 'PLPlayerKit'
   pod 'HappyDNS'
   pod 'RCTPili', :path => '../node_modules/react-native-pili/ios/RCTPili'
-  target 'streamchainTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
 
 end

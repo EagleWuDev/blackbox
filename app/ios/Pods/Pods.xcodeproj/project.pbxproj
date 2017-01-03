@@ -18,7 +18,6 @@
 		063DD4630614B73628248193C7534FA9 /* RCTAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 979ED9883E1793ACB1FE70CE024B7ADA /* RCTAlertManager.m */; };
 		078AF7A3D2D14B639EB5104FF07D1280 /* ARTShape.h in Headers */ = {isa = PBXBuildFile; fileRef = D7F7B02626F9F97714BA66FBA676438F /* ARTShape.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0878F76CE48AAFC733239B7D4E81E7F9 /* RCTURLRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 3589EEF4457427F67FA770C8316BE91D /* RCTURLRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		095F8101FD5F35DD5E0C2B50DF8C1F93 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722E487B16EAF4E7EA3387061ACCE666 /* Foundation.framework */; };
 		09FC79812503C441F98CE29DCDAC30E1 /* RCTPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 363915AA995990986A74774663025350 /* RCTPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C32EA95F755C63B8AF8086943CA1561 /* RCTFont.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36A2513587A5AD58012FEAB093E1943E /* RCTFont.mm */; };
 		0C5E3017661A749A96CAA624CF1EE9C9 /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = 48CAAC539AD431F44D8A3A7D6E2A4B71 /* error.c */; };
@@ -281,7 +280,7 @@
 		8D7AD48A7BEE467731124A9704F4353C /* ARTText.h in Headers */ = {isa = PBXBuildFile; fileRef = 64BFE793355EEFA018F923D9518D9B12 /* ARTText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DF2300839FE28EACAF99E8634C25646 /* RCTTabBarItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C348E5ED36221AB7463D73F12E986F3 /* RCTTabBarItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DFD0CA4F2CDD43A0ADBC8EECA61C588 /* RCTI18nUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E90B8BAECC6E96304536523AAF5E14 /* RCTI18nUtil.m */; };
-		8EEB549D84EDDA8D7D7C5F923191907F /* Pods-streamchain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17806719DED9AA6200E49E15B47A5F96 /* Pods-streamchain-dummy.m */; };
+		8EEB549D84EDDA8D7D7C5F923191907F /* Pods-streamchain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CE4DDFCC130B7AA2EF0C6840FFC31C /* Pods-streamchain-dummy.m */; };
 		8F0E72C5BB91142DB487C4E0214C8A25 /* log.h in Headers */ = {isa = PBXBuildFile; fileRef = 5198E7F0C405E0E8E934510E61082A00 /* log.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90057BFBDDDC6632AF04D69FCA06B45C /* RCTPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 154286E02998A4330B6484191A33EF6C /* RCTPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		909E3345DE365F1D303ABCA78ABE6ECE /* RCTTouchHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EA9B29EF0F768FD80C304CDB00295A4 /* RCTTouchHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -340,7 +339,6 @@
 		AC49C50A8D655B65778525635DCF8D30 /* RCTStreaming.m in Sources */ = {isa = PBXBuildFile; fileRef = 911EC761BD97373CDD81755C066A96CA /* RCTStreaming.m */; };
 		AC8CE9033077EE8B817F0D4735851F9A /* RCTText.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A70A047C09F176882A634B23C4A05 /* RCTText.m */; };
 		ACFF94637FF8728B80B1DE3843D6FE1C /* ARTPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA68ECE12FCFC04E6BDDEC86F1D410 /* ARTPattern.m */; };
-		AE77ED2DE68E630F7E15C1C50B9286A9 /* Pods-streamchainTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ACF0C3D5A3B1C277E73011CBB94478 /* Pods-streamchainTests-dummy.m */; };
 		AEE00BE033B7399E23A7A7A543EFEC6C /* rtmp.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DB4DD7A4C60892F32288241FC2958FD /* rtmp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AEF41967E7628F7D7728B103B7354B0E /* RCTMap.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DBF772E5125250ABD079A951775140 /* RCTMap.m */; };
 		AFBC8051F551A581972FAA780BCFDAFC /* RCTModuleMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 08A49E043F29B72BAC5A9234DD4AAA97 /* RCTModuleMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -571,7 +569,9 @@
 		02BB74BB4A2E0F9DDF7628823E6C42C3 /* RCTLocalAssetImageLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTLocalAssetImageLoader.m; sourceTree = "<group>"; };
 		035D71501A560A5239C35A39CA8D5075 /* RCTFileRequestHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTFileRequestHandler.m; sourceTree = "<group>"; };
 		036F1266ABB6184AC427719D7E1FBB26 /* RCTModalHostViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTModalHostViewController.m; sourceTree = "<group>"; };
+		03D716109FF39772329B951347B9381A /* libHappyDNS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libHappyDNS.a; path = libHappyDNS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C790EB4CAC6A5F31CE5FC89475EEE6 /* RCTWebViewManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTWebViewManager.h; sourceTree = "<group>"; };
+		0633E071190EF27FD032E167CD94DF07 /* Pods-streamchain-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-streamchain-acknowledgements.markdown"; sourceTree = "<group>"; };
 		065A02678392FD78DAD1C4C879C13AEF /* RCTComponentData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTComponentData.m; sourceTree = "<group>"; };
 		065D7580B2AC5C161BCD79A4BCDDD137 /* RCTShadowRawText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTShadowRawText.h; sourceTree = "<group>"; };
 		071505E3CD6EEDE4A7B4EC717FBF5D2C /* RCTDisplayLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTDisplayLink.h; sourceTree = "<group>"; };
@@ -586,6 +586,7 @@
 		0DF0D70FF98F277CE05520A77BB3B6BD /* RCTNetInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTNetInfo.m; sourceTree = "<group>"; };
 		0F7C8D27D4A68DD33BBBFB80F4F19AFB /* RCTEventEmitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTEventEmitter.h; sourceTree = "<group>"; };
 		0FAA1F8608B60FAD30C8C533933DD035 /* RCTModalHostView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTModalHostView.h; sourceTree = "<group>"; };
+		10D61087E16F98CD98A93931C1817E52 /* Pods-streamchain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-streamchain.release.xcconfig"; sourceTree = "<group>"; };
 		113FDBAF5BC5D77E1327B10FC6161CE6 /* QNResolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNResolver.h; path = HappyDNS/Local/QNResolver.h; sourceTree = "<group>"; };
 		118027BE28DBA130809AC373CC8AD06D /* RCTStyleAnimatedNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTStyleAnimatedNode.m; sourceTree = "<group>"; };
 		11BBF8D35F89243A12D188201B7C048D /* RCTImageEditingManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTImageEditingManager.h; sourceTree = "<group>"; };
@@ -597,15 +598,12 @@
 		138415CD6FF96FE5A8C8B7E84F667243 /* RCTDisplayLink.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTDisplayLink.m; sourceTree = "<group>"; };
 		140E9BE491DFD5A34E420C1F52ED5FAF /* RCTPerfMonitor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTPerfMonitor.m; sourceTree = "<group>"; };
 		1453896A200ACD4BD590EE69D21241BF /* RCTWebSocketExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTWebSocketExecutor.h; sourceTree = "<group>"; };
+		14CE4DDFCC130B7AA2EF0C6840FFC31C /* Pods-streamchain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-streamchain-dummy.m"; sourceTree = "<group>"; };
 		14F21B4F49DD488D209B63B75100F683 /* ARTShapeManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ARTShapeManager.m; sourceTree = "<group>"; };
 		153F4B2A7FA57FD0AFF2829202EA5C6B /* RCTProgressViewManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTProgressViewManager.m; sourceTree = "<group>"; };
 		154286E02998A4330B6484191A33EF6C /* RCTPlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTPlatform.h; sourceTree = "<group>"; };
-		155B66847EF9FF97C3FB81530EDCFB55 /* Pods-streamchain-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-streamchain-acknowledgements.markdown"; sourceTree = "<group>"; };
-		163265F35178CF7A9CEEC0DC8A617B51 /* Pods-streamchain-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-streamchain-resources.sh"; sourceTree = "<group>"; };
-		16ACF0C3D5A3B1C277E73011CBB94478 /* Pods-streamchainTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-streamchainTests-dummy.m"; sourceTree = "<group>"; };
 		16E8F8F595EAE5FEBACA8780C6A60E78 /* QNTxtResolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNTxtResolver.h; path = HappyDNS/Local/QNTxtResolver.h; sourceTree = "<group>"; };
 		176024E8BDA2A2A458F9A7C6C76EE673 /* PLTypeDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLTypeDefines.h; path = Pod/Library/include/Common/PLTypeDefines.h; sourceTree = "<group>"; };
-		17806719DED9AA6200E49E15B47A5F96 /* Pods-streamchain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-streamchain-dummy.m"; sourceTree = "<group>"; };
 		178A906ECF4C137D3C53038F0F7EACB8 /* ARTSurfaceViewManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ARTSurfaceViewManager.h; sourceTree = "<group>"; };
 		185FA52C870A5F860E68A406B98F9D1F /* RCTModalHostViewManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTModalHostViewManager.m; sourceTree = "<group>"; };
 		195C42834DBD5345493A037CB9B218FE /* libswresample.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libswresample.a; path = Pod/Library/lib/libswresample.a; sourceTree = "<group>"; };
@@ -634,7 +632,6 @@
 		21135B13892560C50E27557A8C870237 /* RCTSwitchManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTSwitchManager.h; sourceTree = "<group>"; };
 		21F6115157079E1F10F0315B44C09EF3 /* PLAudioPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLAudioPlayer.h; path = Pod/Library/include/Common/PLAudioPlayer.h; sourceTree = "<group>"; };
 		2219E068E9048D91B23D2F2154FC75A6 /* RCTActivityIndicatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTActivityIndicatorView.m; sourceTree = "<group>"; };
-		223D33943A07FC70C7DA772EA31A9325 /* libHappyDNS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libHappyDNS.a; path = libHappyDNS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		231E59BCF3D6D513072CC0C1BD3CF243 /* RCTMapAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTMapAnnotation.h; sourceTree = "<group>"; };
 		2339D13F21A62D73C3791A8DCDB886DE /* RCTUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTUtils.m; sourceTree = "<group>"; };
 		2361D02DE3F3A6F7DB4B7FCFDF246019 /* RCTDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTDefines.h; sourceTree = "<group>"; };
@@ -654,8 +651,6 @@
 		2D4CBAD999992A55D506A76F072CCC35 /* libPLPlayerKit.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libPLPlayerKit.a; path = Pod/Library/lib/libPLPlayerKit.a; sourceTree = "<group>"; };
 		2ED32DA635714CE25CDDAD2DCFF4F072 /* RCTBridgeDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTBridgeDelegate.h; sourceTree = "<group>"; };
 		2F58E534E274748E3975786ED40C4665 /* RCTText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTText.h; sourceTree = "<group>"; };
-		2FCBF841BF09CAE01FF79369F3D9E598 /* Pods-streamchain-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-streamchain-acknowledgements.plist"; sourceTree = "<group>"; };
-		30707E3E0FDE005A0E8365D32F9C5FCD /* Pods-streamchain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-streamchain.release.xcconfig"; sourceTree = "<group>"; };
 		31DC6AA152F2DA4B753325DE4E28FA3A /* RCTRefreshControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTRefreshControl.h; sourceTree = "<group>"; };
 		31E08F492CA608CCAF1A5DA895999A8B /* RCTMap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTMap.h; sourceTree = "<group>"; };
 		31ED0779E72CF7F162D685C47B1DFD1E /* RCTTextViewManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTTextViewManager.m; sourceTree = "<group>"; };
@@ -682,11 +677,11 @@
 		3D6E95573069A57BE8C13CA8389D11E7 /* ARTCGFloatArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ARTCGFloatArray.h; sourceTree = "<group>"; };
 		3DA26522D19961B14E1F82E398151BB8 /* RCTViewPropertyMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTViewPropertyMapper.h; sourceTree = "<group>"; };
 		3DD33386EDB51397FB4AD416573D36D8 /* RCTTabBarManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTTabBarManager.m; sourceTree = "<group>"; };
-		3E363C8D566C8FC39890A2086AA2FDA6 /* Pods-streamchainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-streamchainTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E712A877CB1F0575043A714735F6AEF /* QNAssessment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNAssessment.m; path = HappyDNS/Assessment/QNAssessment.m; sourceTree = "<group>"; };
 		3F5570DDC9C83F0170EB95E004DAA397 /* RCTExceptionsManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTExceptionsManager.h; sourceTree = "<group>"; };
 		3F55923432A5C74B919C83131A335A0E /* JSCSamplingProfiler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JSCSamplingProfiler.m; sourceTree = "<group>"; };
 		3FAA73E6CC6D122A6BC6333D81B2E40D /* RCTMapManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTMapManager.m; sourceTree = "<group>"; };
+		4021EA2DC82208523E2BAA7DFE9FF750 /* Pods-streamchain-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-streamchain-frameworks.sh"; sourceTree = "<group>"; };
 		4037CE739B44134F0B03E7C043B83B2F /* PLStreamingSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLStreamingSession.h; path = Pod/Library/include/PLStreamingKit/PLStreamingSession.h; sourceTree = "<group>"; };
 		408BBB6C75F5E5B36623C1C6AA9CCC09 /* ARTNodeManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ARTNodeManager.m; sourceTree = "<group>"; };
 		40A2D1AEF7E53B2EE40E6C0A90A4B991 /* ARTBrush.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ARTBrush.m; sourceTree = "<group>"; };
@@ -697,6 +692,7 @@
 		43056DD69AC05124B77CAC8983DD56E9 /* CSSEnums.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CSSEnums.h; sourceTree = "<group>"; };
 		433F5C2B26A4ADB370BF6A5A468B631B /* RCTLinkingManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTLinkingManager.h; sourceTree = "<group>"; };
 		4415CE62597B92776670341F2C9A13FC /* HappyDNS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HappyDNS.h; path = HappyDNS/HappyDNS.h; sourceTree = "<group>"; };
+		4512C25C4D1AE9C708E74A65139977D8 /* Pods-streamchain-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-streamchain-resources.sh"; sourceTree = "<group>"; };
 		45307C4DDEA314E538760366A016FAAD /* PLPlayerKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLPlayerKit.h; path = Pod/Library/include/PLPlayerKit/PLPlayerKit.h; sourceTree = "<group>"; };
 		454BA5C068E18A7C0CFB38A7EE372D06 /* libcrypto.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libcrypto.a; path = Pod/Library/lib/libcrypto.a; sourceTree = "<group>"; };
 		456738F23785B013C3A8EE08D8B6FD95 /* RCTRedBox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTRedBox.m; sourceTree = "<group>"; };
@@ -799,7 +795,6 @@
 		6C348E5ED36221AB7463D73F12E986F3 /* RCTTabBarItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTTabBarItem.h; sourceTree = "<group>"; };
 		6CCB984130669BFE5B14828F2989A59E /* RCTJSCWrapper.mm */ = {isa = PBXFileReference; includeInIndex = 1; path = RCTJSCWrapper.mm; sourceTree = "<group>"; };
 		6DB99F7F8A739758348AA9360995522A /* RCTSegmentedControlManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTSegmentedControlManager.m; sourceTree = "<group>"; };
-		6DFE3483ED66456F66F4740F09A2C804 /* libPods-streamchainTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-streamchainTests.a"; path = "libPods-streamchainTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E85C563C4A17ED841BDBDAB3F836231 /* RCTMapOverlay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTMapOverlay.m; sourceTree = "<group>"; };
 		6F053310A918C456839B462446A0D1E9 /* RCTImageLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTImageLoader.h; sourceTree = "<group>"; };
 		6F90E5B1D3DC8E57DB3CFA3DE1614EE4 /* CSSMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CSSMacros.h; sourceTree = "<group>"; };
@@ -844,7 +839,6 @@
 		7F16E33A1C3B747893A27EE8AA821668 /* RCTImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTImageView.m; sourceTree = "<group>"; };
 		7FFA7AB2884EB1AEA171F9F2B89D1F82 /* pili-librtmp-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "pili-librtmp-prefix.pch"; sourceTree = "<group>"; };
 		8042BD0DB0C469730D138A3BECC0D68A /* UIView+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+Private.h"; sourceTree = "<group>"; };
-		804D534C91CEB82D7ACF1BF3D0FFA666 /* Pods-streamchain-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-streamchain-frameworks.sh"; sourceTree = "<group>"; };
 		80698B768BD1C3F3DA21BBF1B420CB20 /* RCTDatePickerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTDatePickerManager.m; sourceTree = "<group>"; };
 		8088108C704005C65E98D6A2C35B62C6 /* ARTRenderableManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ARTRenderableManager.h; sourceTree = "<group>"; };
 		80AC6A91E3158DFCFB5B4174D498C5EE /* RCTJSStackFrame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTJSStackFrame.m; sourceTree = "<group>"; };
@@ -883,7 +877,6 @@
 		9213DE64FEC3D509311692B476DE9076 /* RCTSliderManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTSliderManager.h; sourceTree = "<group>"; };
 		929BDA648D5F5E3B6A3684E58941B4E1 /* RCTImageViewManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTImageViewManager.m; sourceTree = "<group>"; };
 		92A2EF3B13A23E2E37F57250D2ED1FB8 /* RCTTabBarManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTTabBarManager.h; sourceTree = "<group>"; };
-		932A918AD5208BA004E24C1320A2174E /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libReact.a; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		934BC72ECD1895CF5AF4EB4B18B87897 /* RCTModuleData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTModuleData.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93A57730A96B8BA0E56E20F93E8FFFF8 /* RCTAnimatedNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTAnimatedNode.m; sourceTree = "<group>"; };
@@ -913,7 +906,6 @@
 		9E0EF4A4F0A58B6870178FC8EA55102B /* RCTNavItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTNavItem.m; sourceTree = "<group>"; };
 		9F3F81424664791C09D2720FA5B5999C /* RCTI18nManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTI18nManager.h; sourceTree = "<group>"; };
 		9F91AAE19D10A340C6E625D11EEC8782 /* RCTTouchEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTTouchEvent.m; sourceTree = "<group>"; };
-		A1DE6E348CB7B85ACE6FDC0539BE92B6 /* libpili-librtmp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libpili-librtmp.a"; path = "libpili-librtmp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A243084EAEC80597623EE3C945DAD114 /* RCTWebSocketProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTWebSocketProxy.h; sourceTree = "<group>"; };
 		A26821AE56841C7B32CAA6348803F778 /* RCTPushNotificationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTPushNotificationManager.m; sourceTree = "<group>"; };
 		A3825C2879585E35F4975E30718A47C2 /* RCTTabBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTTabBar.m; sourceTree = "<group>"; };
@@ -936,9 +928,9 @@
 		ACF3F2C90FE6AF588AC001ACCE5514F9 /* RCTJSCExecutor.mm */ = {isa = PBXFileReference; includeInIndex = 1; path = RCTJSCExecutor.mm; sourceTree = "<group>"; };
 		AD114CF0D6706A18253C733713293B03 /* RCTParserUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTParserUtils.m; sourceTree = "<group>"; };
 		AD96CDEBF4345FB781AABF712A2CEAE0 /* QNHosts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNHosts.h; path = HappyDNS/Local/QNHosts.h; sourceTree = "<group>"; };
+		ADFA384D19542C905F17E960363649F5 /* Pods-streamchain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-streamchain.debug.xcconfig"; sourceTree = "<group>"; };
 		AE4ED4F2E3DA53A0DDDD77EA4BA3B05A /* CSSNodeList.c */ = {isa = PBXFileReference; includeInIndex = 1; path = CSSNodeList.c; sourceTree = "<group>"; };
 		B0A2E0675B675A1FB0DC30E8CB8361C0 /* CSSMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CSSMacros.h; sourceTree = "<group>"; };
-		B1803532B7F4044CA0BBD5059875AB50 /* libPods-streamchain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-streamchain.a"; path = "libPods-streamchain.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29B4399892C6BE7E19A02BC50EC1BE4 /* RCTDevMenu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTDevMenu.h; sourceTree = "<group>"; };
 		B3AA15572F1F74CA0F521DDA8A10C985 /* QNAssessment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNAssessment.h; path = HappyDNS/Assessment/QNAssessment.h; sourceTree = "<group>"; };
 		B5AAE0643C0284C9235D718F2EF4DCBC /* QNDes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNDes.m; path = HappyDNS/Util/QNDes.m; sourceTree = "<group>"; };
@@ -975,7 +967,6 @@
 		C32E18DB97AB98CD239A1F1C827E9C93 /* RCTWebViewManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTWebViewManager.m; sourceTree = "<group>"; };
 		C34C5CD89B4CBF24420EE8B5D4D3385A /* RCTEventEmitter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTEventEmitter.m; sourceTree = "<group>"; };
 		C3A12AFA85071FF1CA99E4DAC2FF808B /* RCTNativeAnimatedModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTNativeAnimatedModule.h; sourceTree = "<group>"; };
-		C3AC6661108BFBFD4DFE458DCFA5D9F7 /* Pods-streamchainTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-streamchainTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C3D95CA6B19292A6816C59B35463A6AE /* RCTNavItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTNavItem.h; sourceTree = "<group>"; };
 		C40AD023050FEEAD550881852BC18F26 /* RCTAdditionAnimatedNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTAdditionAnimatedNode.h; sourceTree = "<group>"; };
 		C4926E8708BF8CF8BFE9A4C93988A8C2 /* ARTSurfaceViewManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ARTSurfaceViewManager.m; sourceTree = "<group>"; };
@@ -998,12 +989,10 @@
 		CA0794032EAD3C27D0DCB1203EC595D9 /* RCTNetInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTNetInfo.h; sourceTree = "<group>"; };
 		CA76505FA0FC6694BD3A8FF59E4F7FF1 /* QNNetDiag-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QNNetDiag-prefix.pch"; sourceTree = "<group>"; };
 		CAA314F45537607BD5A64360E99D46BA /* RCTNavigatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTNavigatorManager.h; sourceTree = "<group>"; };
-		CB0611DC5B41C9F2CF85B149A6ABB50D /* libQNNetDiag.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libQNNetDiag.a; path = libQNNetDiag.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB33935A560C55E8749259F50B3A7C35 /* RCTPili-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RCTPili-dummy.m"; sourceTree = "<group>"; };
 		CB4EDFA0A563DEBA84E33D87C85FFE58 /* RCTNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTNetworking.h; sourceTree = "<group>"; };
 		CBAB970F442B3FAF7456A442FD8F2BAD /* ARTNodeManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ARTNodeManager.h; sourceTree = "<group>"; };
 		CCBA76E50BCA1492305C3555967E9DD6 /* RCTTiming.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTTiming.m; sourceTree = "<group>"; };
-		CD03E9BDFB1B7E4EB770F39AFD695F74 /* Pods-streamchainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-streamchainTests.release.xcconfig"; sourceTree = "<group>"; };
 		CEE6970919C5E83730DD207CA7A39F11 /* RCTAppState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTAppState.h; sourceTree = "<group>"; };
 		CF2141C15076CD8567F247265642235F /* RCTScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTScrollView.h; sourceTree = "<group>"; };
 		CF99C716C540D271F7359B48ED5689CA /* RCTAdditionAnimatedNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTAdditionAnimatedNode.m; sourceTree = "<group>"; };
@@ -1017,7 +1006,6 @@
 		D417C2BA733547D8A879A32875771F56 /* ARTGroupManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ARTGroupManager.h; sourceTree = "<group>"; };
 		D539DD96171AAF6873BCE0DA5FBE1312 /* RCTAssetsLibraryRequestHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTAssetsLibraryRequestHandler.m; sourceTree = "<group>"; };
 		D54D76E38F85A8B90DCB33F7D3BC4B18 /* RCTImageViewManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTImageViewManager.h; sourceTree = "<group>"; };
-		D599A8E3E1FCAB6DBDEC5ED1625A7831 /* Pods-streamchain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-streamchain.debug.xcconfig"; sourceTree = "<group>"; };
 		D5A0F7FF87D961889D5F77A5FAC6D4AF /* RCTTextViewManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTTextViewManager.h; sourceTree = "<group>"; };
 		D66202D4C5FA3DACDA5AFBF64B28ED9D /* parseurl.c */ = {isa = PBXFileReference; includeInIndex = 1; name = parseurl.c; path = "Pod/Classes/pili-librtmp/parseurl.c"; sourceTree = "<group>"; };
 		D6676516527A92BAA0282A90926EBEF2 /* RCTFrameUpdate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTFrameUpdate.h; sourceTree = "<group>"; };
@@ -1028,6 +1016,7 @@
 		D8CF52F4EAAD40A70A32DEE45CFBA3C0 /* RCTErrorInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTErrorInfo.m; sourceTree = "<group>"; };
 		D8F6C9A551D1AFA69742232A5C5B3A3E /* PLRTCStreamingKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLRTCStreamingKit.h; path = Pod/Library/include/PLRTCStreamingKit/PLRTCStreamingKit.h; sourceTree = "<group>"; };
 		D90D7F459E1A3EEA447B305F9278966D /* ARTNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ARTNode.h; sourceTree = "<group>"; };
+		DA2EC0816B3C9DA798C94D1EC162822A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libReact.a; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7962BD5026A8E949A95CD129672FFB /* RCTLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTLog.h; sourceTree = "<group>"; };
 		DB7E8A865D1E5E8853CFD1692ADC7CB1 /* RCTSegmentedControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTSegmentedControl.m; sourceTree = "<group>"; };
 		DBBD46909D6BDE522053BFE61097429A /* ARTTextManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ARTTextManager.m; sourceTree = "<group>"; };
@@ -1044,6 +1033,7 @@
 		E017631F0213602FA7FF0D1BC46685EF /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E03962C191C3E9952C222D253300FFC7 /* ARTContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ARTContainer.h; sourceTree = "<group>"; };
 		E052B9E91560980E594998C45236D1D9 /* QNGetAddrInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNGetAddrInfo.m; path = HappyDNS/Util/QNGetAddrInfo.m; sourceTree = "<group>"; };
+		E07AAEFB61C2E21110C1D8A217F9C842 /* libRCTPili.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libRCTPili.a; path = libRCTPili.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D24F223E026F1BFA609102D63AC914 /* RCTDatePickerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTDatePickerManager.h; sourceTree = "<group>"; };
 		E0F4A5B96FEF761DB947C31B7AC0AAA1 /* RCTComponentData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTComponentData.h; sourceTree = "<group>"; };
 		E0F9CFDB4100C66AE2A9E7BE5F2E1A79 /* RCTActivityIndicatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTActivityIndicatorView.h; sourceTree = "<group>"; };
@@ -1054,8 +1044,8 @@
 		E40CB26B6231D1FA49AD913B75F0B030 /* RCTLocationObserver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTLocationObserver.h; sourceTree = "<group>"; };
 		E4816B39C8C0A30CAB87A1C686D2B633 /* HappyDNS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HappyDNS.xcconfig; sourceTree = "<group>"; };
 		E4B0776258D44D8CF5E1AF2EB6DC1525 /* RCTUIManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTUIManager.h; sourceTree = "<group>"; };
+		E4E5C736C3C7CD611F80D0353A720EE8 /* libpili-librtmp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libpili-librtmp.a"; path = "libpili-librtmp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5266C2CA4FCB7DE2A7A25E7F995010F /* RCTDatePicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTDatePicker.m; sourceTree = "<group>"; };
-		E52FCA201D1FDF2A505ABB1D320AF47C /* Pods-streamchainTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-streamchainTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E5A7692CF402A9DF24596BB42528E051 /* RCTLocalAssetImageLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTLocalAssetImageLoader.h; sourceTree = "<group>"; };
 		E664A4BFA19F103DBC5AD0DB8C17BA31 /* PLAudioStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLAudioStreamingConfiguration.h; path = Pod/Library/include/Common/PLAudioStreamingConfiguration.h; sourceTree = "<group>"; };
 		E68128634BB4AA9EEDF6B3C6AC23FD4A /* QNNExternalIp.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNNExternalIp.m; path = NetDiag/QNNExternalIp.m; sourceTree = "<group>"; };
@@ -1065,7 +1055,7 @@
 		E79EE7896A34ABC93CDE59F9FBF73B51 /* QNHex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNHex.m; path = HappyDNS/Util/QNHex.m; sourceTree = "<group>"; };
 		E8A2C09D223F846100647D426FD0E44B /* RCTDataRequestHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTDataRequestHandler.h; sourceTree = "<group>"; };
 		EA2BB5CCCB69F97A1F05634B924BAA26 /* RCTVibration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTVibration.m; sourceTree = "<group>"; };
-		EA4D7E2F604EE3B90A1664C331E700F4 /* Pods-streamchainTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-streamchainTests-resources.sh"; sourceTree = "<group>"; };
+		EB0DBBD95F3D80F3F579AC61DA2FCAB6 /* libPods-streamchain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-streamchain.a"; path = "libPods-streamchain.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9B3ADAEF893CDA2F73D9E1AB4DC9B3 /* RCTModuloAnimatedNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTModuloAnimatedNode.m; sourceTree = "<group>"; };
 		EBD2345F8A246A23DEAEB8CF63444513 /* RCTAssert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTAssert.m; sourceTree = "<group>"; };
 		EBE35D61E50EDEEEC788BAC98BC4E9E7 /* RCTPointerEvents.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTPointerEvents.h; sourceTree = "<group>"; };
@@ -1074,7 +1064,6 @@
 		EDB4E9E51DEBB34E7C2BA28DDC022432 /* amf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = amf.h; path = "Pod/Classes/pili-librtmp/amf.h"; sourceTree = "<group>"; };
 		EDC79B9AC83BFDEE703606684B779FE6 /* RCTRootViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTRootViewDelegate.h; sourceTree = "<group>"; };
 		EE04E0450FF13F9128948603F3CF54A2 /* RCTModuloAnimatedNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTModuloAnimatedNode.h; sourceTree = "<group>"; };
-		EE205D1606395C6AA768D6202F5D37ED /* Pods-streamchainTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-streamchainTests-frameworks.sh"; sourceTree = "<group>"; };
 		EE2A9290EAEEF84B5A7A471503991777 /* RCTSettingsManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTSettingsManager.h; sourceTree = "<group>"; };
 		EE7A7482419C3974BC92E29D5D7BCCE1 /* RCTTextFieldManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTTextFieldManager.h; sourceTree = "<group>"; };
 		EE922FFB90A554AAE4DC27056459805B /* RCTConvert+MapKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+MapKit.h"; sourceTree = "<group>"; };
@@ -1083,11 +1072,11 @@
 		F0995F7E004E1D82691BAEE11DD64B72 /* RCTPhotoLibraryImageLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTPhotoLibraryImageLoader.m; sourceTree = "<group>"; };
 		F12F1F46B3CFACD14BAD01033A05781D /* RCTTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTTextView.m; sourceTree = "<group>"; };
 		F1355C2DAB0AA65677CE4A6AD1FC3D91 /* QNNUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNNUtil.m; path = NetDiag/QNNUtil.m; sourceTree = "<group>"; };
+		F147B91C8AA878E9B142188A2DF497F1 /* Pods-streamchain-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-streamchain-acknowledgements.plist"; sourceTree = "<group>"; };
 		F14B6CE89E61F1F10C8870968C801750 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F167CC3470F9CDB11E6AF8AF845F0DA8 /* log.c */ = {isa = PBXFileReference; includeInIndex = 1; name = log.c; path = "Pod/Classes/pili-librtmp/log.c"; sourceTree = "<group>"; };
 		F16E478D7CE0A611D6EE53725FE12DBC /* RCTGIFImageDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTGIFImageDecoder.h; sourceTree = "<group>"; };
 		F181B374A6998A63938719CB334DE743 /* RCTShadowText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTShadowText.h; sourceTree = "<group>"; };
-		F1E8FF455F353F10F5CC37517A4C2AAE /* libRCTPili.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libRCTPili.a; path = libRCTPili.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22A46C7C66ABCDAD5962769005D8A81 /* RCTWebSocketManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTWebSocketManager.m; sourceTree = "<group>"; };
 		F38D56957AC0A4144D7DE69D17CB63F9 /* RCTKeyboardObserver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTKeyboardObserver.h; sourceTree = "<group>"; };
 		F3928FAE4D2D9454D984F76F7F364454 /* RCTAdSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTAdSupport.h; sourceTree = "<group>"; };
@@ -1109,6 +1098,7 @@
 		FBB5A8111CB8266AB6C1DE79CD81C859 /* PLAudioEffectConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLAudioEffectConfiguration.h; path = Pod/Library/include/Common/PLAudioEffectConfiguration.h; sourceTree = "<group>"; };
 		FC3D644916001627C365FCE0716F4329 /* RCTStreamingManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTStreamingManager.h; sourceTree = "<group>"; };
 		FC6C29B80E42D9665DEC2DFACF268376 /* RCTImageUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTImageUtils.h; sourceTree = "<group>"; };
+		FC7882F03CC3F92A56E4DC19840126AB /* libQNNetDiag.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libQNNetDiag.a; path = libQNNetDiag.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCEA1D77B99CF68239149CDC1AB26189 /* RCTRefreshControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTRefreshControl.m; sourceTree = "<group>"; };
 		FD7353007B0FA7EBBEDB69A543C01C97 /* RCTRootViewInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTRootViewInternal.h; sourceTree = "<group>"; };
 		FFD5CED9137174A7C7CE47312CEC6F6F /* pili-librtmp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "pili-librtmp-dummy.m"; sourceTree = "<group>"; };
@@ -1156,14 +1146,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		86BE01658EA9CB31ED89A3F1AEEC2701 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				095F8101FD5F35DD5E0C2B50DF8C1F93 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B207B768244E579CCFF5A153C8C7E617 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1185,26 +1167,27 @@
 			name = PLStreamingKit;
 			sourceTree = "<group>";
 		};
-		0822C67E6853A9406BEF5E94BB0D585E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				223D33943A07FC70C7DA772EA31A9325 /* libHappyDNS.a */,
-				A1DE6E348CB7B85ACE6FDC0539BE92B6 /* libpili-librtmp.a */,
-				B1803532B7F4044CA0BBD5059875AB50 /* libPods-streamchain.a */,
-				6DFE3483ED66456F66F4740F09A2C804 /* libPods-streamchainTests.a */,
-				CB0611DC5B41C9F2CF85B149A6ABB50D /* libQNNetDiag.a */,
-				F1E8FF455F353F10F5CC37517A4C2AAE /* libRCTPili.a */,
-				932A918AD5208BA004E24C1320A2174E /* libReact.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		091CDF92AE50774C3254F2AF086FA656 /* RCTNetwork */ = {
 			isa = PBXGroup;
 			children = (
 				E96A8A16229C65DB9C8A2B6D8C761C45 /* Libraries */,
 			);
 			name = RCTNetwork;
+			sourceTree = "<group>";
+		};
+		1ADD5CE93453685BB223C6DD141C29AA /* Pods-streamchain */ = {
+			isa = PBXGroup;
+			children = (
+				0633E071190EF27FD032E167CD94DF07 /* Pods-streamchain-acknowledgements.markdown */,
+				F147B91C8AA878E9B142188A2DF497F1 /* Pods-streamchain-acknowledgements.plist */,
+				14CE4DDFCC130B7AA2EF0C6840FFC31C /* Pods-streamchain-dummy.m */,
+				4021EA2DC82208523E2BAA7DFE9FF750 /* Pods-streamchain-frameworks.sh */,
+				4512C25C4D1AE9C708E74A65139977D8 /* Pods-streamchain-resources.sh */,
+				ADFA384D19542C905F17E960363649F5 /* Pods-streamchain.debug.xcconfig */,
+				10D61087E16F98CD98A93931C1817E52 /* Pods-streamchain.release.xcconfig */,
+			);
+			name = "Pods-streamchain";
+			path = "Target Support Files/Pods-streamchain";
 			sourceTree = "<group>";
 		};
 		20097C3BF0D82727F44F1FA44BAA324F /* CSSLayout */ = {
@@ -1336,6 +1319,14 @@
 			);
 			name = React;
 			path = React;
+			sourceTree = "<group>";
+		};
+		3CCFADAD028366617E93CF2B28BE59A2 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1ADD5CE93453685BB223C6DD141C29AA /* Pods-streamchain */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		40E87A04FC68160A534976DB6464FB2E /* iOS */ = {
@@ -1499,15 +1490,6 @@
 				742C74B06C300C21253FFC6ED62422C7 /* Libraries */,
 			);
 			name = RCTVibration;
-			sourceTree = "<group>";
-		};
-		65FE813437545B3F227BA8050C168D53 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C9061516D0A181FD5F6619882915D10A /* Pods-streamchain */,
-				D0E1ED7340D4D3CBFF8AB2E7F9D6782F /* Pods-streamchainTests */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		66FF4A9458C1AA3E94B0E59C3109C586 /* ActionSheetIOS */ = {
@@ -1696,8 +1678,8 @@
 				8EAD4DDBF4CDF4F011C9271957E01999 /* Development Pods */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
 				F6F71D70516141F0B1B9C11A751AE206 /* Pods */,
-				0822C67E6853A9406BEF5E94BB0D585E /* Products */,
-				65FE813437545B3F227BA8050C168D53 /* Targets Support Files */,
+				D1F3B66ECB6DA533EF25557666CB8C28 /* Products */,
+				3CCFADAD028366617E93CF2B28BE59A2 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2208,21 +2190,6 @@
 			name = PLRTCStreamingKit;
 			sourceTree = "<group>";
 		};
-		C9061516D0A181FD5F6619882915D10A /* Pods-streamchain */ = {
-			isa = PBXGroup;
-			children = (
-				155B66847EF9FF97C3FB81530EDCFB55 /* Pods-streamchain-acknowledgements.markdown */,
-				2FCBF841BF09CAE01FF79369F3D9E598 /* Pods-streamchain-acknowledgements.plist */,
-				17806719DED9AA6200E49E15B47A5F96 /* Pods-streamchain-dummy.m */,
-				804D534C91CEB82D7ACF1BF3D0FFA666 /* Pods-streamchain-frameworks.sh */,
-				163265F35178CF7A9CEEC0DC8A617B51 /* Pods-streamchain-resources.sh */,
-				D599A8E3E1FCAB6DBDEC5ED1625A7831 /* Pods-streamchain.debug.xcconfig */,
-				30707E3E0FDE005A0E8365D32F9C5FCD /* Pods-streamchain.release.xcconfig */,
-			);
-			name = "Pods-streamchain";
-			path = "Target Support Files/Pods-streamchain";
-			sourceTree = "<group>";
-		};
 		CA305F39CB65138A2C73749222B2372C /* RCTAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -2250,19 +2217,17 @@
 			path = Libraries;
 			sourceTree = "<group>";
 		};
-		D0E1ED7340D4D3CBFF8AB2E7F9D6782F /* Pods-streamchainTests */ = {
+		D1F3B66ECB6DA533EF25557666CB8C28 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E52FCA201D1FDF2A505ABB1D320AF47C /* Pods-streamchainTests-acknowledgements.markdown */,
-				C3AC6661108BFBFD4DFE458DCFA5D9F7 /* Pods-streamchainTests-acknowledgements.plist */,
-				16ACF0C3D5A3B1C277E73011CBB94478 /* Pods-streamchainTests-dummy.m */,
-				EE205D1606395C6AA768D6202F5D37ED /* Pods-streamchainTests-frameworks.sh */,
-				EA4D7E2F604EE3B90A1664C331E700F4 /* Pods-streamchainTests-resources.sh */,
-				3E363C8D566C8FC39890A2086AA2FDA6 /* Pods-streamchainTests.debug.xcconfig */,
-				CD03E9BDFB1B7E4EB770F39AFD695F74 /* Pods-streamchainTests.release.xcconfig */,
+				03D716109FF39772329B951347B9381A /* libHappyDNS.a */,
+				E4E5C736C3C7CD611F80D0353A720EE8 /* libpili-librtmp.a */,
+				EB0DBBD95F3D80F3F579AC61DA2FCAB6 /* libPods-streamchain.a */,
+				FC7882F03CC3F92A56E4DC19840126AB /* libQNNetDiag.a */,
+				E07AAEFB61C2E21110C1D8A217F9C842 /* libRCTPili.a */,
+				DA2EC0816B3C9DA798C94D1EC162822A /* libReact.a */,
 			);
-			name = "Pods-streamchainTests";
-			path = "Target Support Files/Pods-streamchainTests";
+			name = Products;
 			sourceTree = "<group>";
 		};
 		D8B0DD7D695433FB3D0C0E9B56D334A3 /* Support Files */ = {
@@ -2791,7 +2756,7 @@
 			);
 			name = RCTPili;
 			productName = RCTPili;
-			productReference = F1E8FF455F353F10F5CC37517A4C2AAE /* libRCTPili.a */;
+			productReference = E07AAEFB61C2E21110C1D8A217F9C842 /* libRCTPili.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		53B2B897D64E4516E75AC86348B86622 /* HappyDNS */ = {
@@ -2808,7 +2773,7 @@
 			);
 			name = HappyDNS;
 			productName = HappyDNS;
-			productReference = 223D33943A07FC70C7DA772EA31A9325 /* libHappyDNS.a */;
+			productReference = 03D716109FF39772329B951347B9381A /* libHappyDNS.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		606DF8DB43926FEDE9B96B867A58E525 /* Pods-streamchain */ = {
@@ -2829,7 +2794,7 @@
 			);
 			name = "Pods-streamchain";
 			productName = "Pods-streamchain";
-			productReference = B1803532B7F4044CA0BBD5059875AB50 /* libPods-streamchain.a */;
+			productReference = EB0DBBD95F3D80F3F579AC61DA2FCAB6 /* libPods-streamchain.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		7F4B57AC389586BCB2E80B2787D0585A /* QNNetDiag */ = {
@@ -2846,7 +2811,7 @@
 			);
 			name = QNNetDiag;
 			productName = QNNetDiag;
-			productReference = CB0611DC5B41C9F2CF85B149A6ABB50D /* libQNNetDiag.a */;
+			productReference = FC7882F03CC3F92A56E4DC19840126AB /* libQNNetDiag.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		9106D9CCDF09D7037FB49DE9B8CF208B /* pili-librtmp */ = {
@@ -2863,23 +2828,7 @@
 			);
 			name = "pili-librtmp";
 			productName = "pili-librtmp";
-			productReference = A1DE6E348CB7B85ACE6FDC0539BE92B6 /* libpili-librtmp.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		AB44F201D4BE8287212B44ECA8058BB9 /* Pods-streamchainTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5EC9DC48E24286349B8B0580067EEDB2 /* Build configuration list for PBXNativeTarget "Pods-streamchainTests" */;
-			buildPhases = (
-				DE3C21AAF81886E2967D7F2FCF543E5D /* Sources */,
-				86BE01658EA9CB31ED89A3F1AEEC2701 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-streamchainTests";
-			productName = "Pods-streamchainTests";
-			productReference = 6DFE3483ED66456F66F4740F09A2C804 /* libPods-streamchainTests.a */;
+			productReference = E4E5C736C3C7CD611F80D0353A720EE8 /* libpili-librtmp.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		BEB5DA9EE0923BEA494F9CEE4C5F8641 /* React */ = {
@@ -2896,7 +2845,7 @@
 			);
 			name = React;
 			productName = React;
-			productReference = 932A918AD5208BA004E24C1320A2174E /* libReact.a */;
+			productReference = DA2EC0816B3C9DA798C94D1EC162822A /* libReact.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -2916,14 +2865,13 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 0822C67E6853A9406BEF5E94BB0D585E /* Products */;
+			productRefGroup = D1F3B66ECB6DA533EF25557666CB8C28 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				53B2B897D64E4516E75AC86348B86622 /* HappyDNS */,
 				9106D9CCDF09D7037FB49DE9B8CF208B /* pili-librtmp */,
 				606DF8DB43926FEDE9B96B867A58E525 /* Pods-streamchain */,
-				AB44F201D4BE8287212B44ECA8058BB9 /* Pods-streamchainTests */,
 				7F4B57AC389586BCB2E80B2787D0585A /* QNNetDiag */,
 				14E5EBBF4AB6DBA9D0DB2F2F8736AA3B /* RCTPili */,
 				BEB5DA9EE0923BEA494F9CEE4C5F8641 /* React */,
@@ -3185,14 +3133,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE3C21AAF81886E2967D7F2FCF543E5D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AE77ED2DE68E630F7E15C1C50B9286A9 /* Pods-streamchainTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F9EF8ED3D799BA05B7483690F39787D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3315,7 +3255,7 @@
 		};
 		390711D05C8404EF17B9F5D6DF86FCCB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D599A8E3E1FCAB6DBDEC5ED1625A7831 /* Pods-streamchain.debug.xcconfig */;
+			baseConfigurationReference = ADFA384D19542C905F17E960363649F5 /* Pods-streamchain.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3421,29 +3361,6 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
-		};
-		4F5F2C8F1AAB4451C45883016315AF1F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD03E9BDFB1B7E4EB770F39AFD695F74 /* Pods-streamchainTests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
 		};
 		56FB1F92CBCE8FEEA158C232F14E540E /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -3606,29 +3523,6 @@
 			};
 			name = Release;
 		};
-		E139B14B32406F0E16333A7D1B5D620C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E363C8D566C8FC39890A2086AA2FDA6 /* Pods-streamchainTests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 		F966FD409B07A9E342BDF9A17A3ACBA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E4816B39C8C0A30CAB87A1C686D2B633 /* HappyDNS.xcconfig */;
@@ -3654,7 +3548,7 @@
 		};
 		FE58A32836E4A67D45B159BD8EC1361C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30707E3E0FDE005A0E8365D32F9C5FCD /* Pods-streamchain.release.xcconfig */;
+			baseConfigurationReference = 10D61087E16F98CD98A93931C1817E52 /* Pods-streamchain.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -3701,15 +3595,6 @@
 			buildConfigurations = (
 				4DACC14486E95FB5A7D98D8EDF5B8AB0 /* Debug */,
 				4670DA3733415004613A8507607451A7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5EC9DC48E24286349B8B0580067EEDB2 /* Build configuration list for PBXNativeTarget "Pods-streamchainTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E139B14B32406F0E16333A7D1B5D620C /* Debug */,
-				4F5F2C8F1AAB4451C45883016315AF1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
