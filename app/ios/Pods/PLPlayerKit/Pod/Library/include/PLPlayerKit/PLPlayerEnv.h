@@ -13,7 +13,6 @@
 /**
  @brief 初始化 player 的运行环境，需要在 -application:didFinishLaunchingWithOptions: 方法下调用该方法，
  
- @warning 不调用该方法将导致 PLPlayer 对象无法初始化
  */
 +(void)initEnv;
 
@@ -30,5 +29,14 @@
  @param flag 开启为 YES，否则为NO
  */
 +(void)enableQos:(BOOL)flag;
+
+/**
+ @brief 设置 ffmpeg 的版本号
+ 
+ @param version const char *
+ */
++ (void)setFFmpegVersion:(const char *)version;
+
++ (NSString *)getFFmpegVersion;
 
 @end

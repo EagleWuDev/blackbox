@@ -6,25 +6,26 @@ target 'streamchain' do
   # use_frameworks!
 
   # Pods for streamchain
-  #  pod 'React', :path => '../js/node_modules/react-native', :subspecs => [
-  #    'Core',
-  #    'ART',
-  #    'RCTActionSheet',
-  #    'RCTGeolocation',
-  #    'RCTImage',
-  #    'RCTNetwork',
-  #    'RCTText',
-  #    'RCTVibration',
-  #    'RCTWebSocket',
-  #    'RCTLinkingIOS',
-  #    'RCTAnimation',
-  #    'RCTAdSupport',
-  #    'RCTCameraRoll',
-  #    'RCTPushNotification',
-  #    'RCTSettings'
-  #  ]
+    pod 'React', :path => '../node_modules/react-native', :subspecs => [
+      'Core',
+      'ART',
+      'RCTActionSheet',
+      'RCTGeolocation',
+      'RCTImage',
+      'RCTNetwork',
+      'RCTText',
+      'RCTVibration',
+      'RCTWebSocket',
+      'RCTLinkingIOS',
+      'RCTAnimation',
+      'RCTAdSupport',
+      'RCTCameraRoll',
+      'RCTPushNotification',
+      'RCTSettings'
+    ]
   pod 'PLMediaStreamingKit'
   pod 'PLPlayerKit'
+  pod 'HappyDNS'
   pod 'RCTPili', :path => '../node_modules/react-native-pili/ios/RCTPili'
   target 'streamchainTests' do
     inherit! :search_paths
