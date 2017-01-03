@@ -27,7 +27,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		9840560B3CE342ED971D7B85 /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605FBA87D6714FE885FDBC70 /* libReactNativePermissions.a */; };
 		A9139B5EA5994B47999FAB61 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C90E653FAD5E44DCAEB3ADA1 /* libCodePush.a */; };
-		AD6060A4C179120AB899F81E /* libPods-streamchain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98237468436AD8439BE2CBF2 /* libPods-streamchain.a */; };
+		B7C2341BA3214864B1FB7572 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 553B4FF1347049B1A31E478C /* libRCTCamera.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +114,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 78CFC63A1D89426D00386E6B;
 			remoteInfo = RCTPili;
+		};
+		7B9E47651E1C343F00937B46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADFAD1E2E5BF4891B9FD9763 /* RCTCamera.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
+			remoteInfo = RCTCamera;
 		};
 		7BA2D59D1E12E0630076BC96 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -218,9 +225,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = streamchain/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = streamchain/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		2D98612D40BEEB995FB05949 /* Pods-streamchainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-streamchainTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-streamchainTests/Pods-streamchainTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3304B79DBB8B9E47A1F29AB9 /* libPods-streamchainTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-streamchainTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE8BC7CA235BA10431A3D8E /* Pods-streamchain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-streamchain.release.xcconfig"; path = "Pods/Target Support Files/Pods-streamchain/Pods-streamchain.release.xcconfig"; sourceTree = "<group>"; };
+		553B4FF1347049B1A31E478C /* libRCTCamera.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTCamera.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		5E91F2CA99D24C018E79E051 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		605FBA87D6714FE885FDBC70 /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
@@ -232,8 +238,7 @@
 		8082B3F6AB5F9177D36513E6 /* Pods-streamchain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-streamchain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-streamchain/Pods-streamchain.debug.xcconfig"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		84A5AC7D9760467E87419798 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		98237468436AD8439BE2CBF2 /* libPods-streamchain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-streamchain.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC059A2C2CD1E1E6EC86701E /* Pods-streamchainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-streamchainTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-streamchainTests/Pods-streamchainTests.release.xcconfig"; sourceTree = "<group>"; };
+		ADFAD1E2E5BF4891B9FD9763 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		C90E653FAD5E44DCAEB3ADA1 /* libCodePush.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libCodePush.a; sourceTree = "<group>"; };
 		E0E6256F409B483FB5A96919 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativePermissions.xcodeproj; path = "../node_modules/react-native-permissions/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,7 +264,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				A9139B5EA5994B47999FAB61 /* libCodePush.a in Frameworks */,
 				9840560B3CE342ED971D7B85 /* libReactNativePermissions.a in Frameworks */,
-				AD6060A4C179120AB899F81E /* libPods-streamchain.a in Frameworks */,
+				B7C2341BA3214864B1FB7572 /* libRCTCamera.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +396,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7B9E475E1E1C343F00937B46 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B9E47661E1C343F00937B46 /* libRCTCamera.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7BA2D5CB1E14199C0076BC96 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +437,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				5E91F2CA99D24C018E79E051 /* CodePush.xcodeproj */,
 				E0E6256F409B483FB5A96919 /* ReactNativePermissions.xcodeproj */,
+				ADFAD1E2E5BF4891B9FD9763 /* RCTCamera.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -466,8 +480,6 @@
 				7B9E46E61E1C043900937B46 /* libPLMediaStreamingKit.a */,
 				7B9E46E01E1C02FB00937B46 /* libc++.tbd */,
 				84A5AC7D9760467E87419798 /* libz.tbd */,
-				98237468436AD8439BE2CBF2 /* libPods-streamchain.a */,
-				3304B79DBB8B9E47A1F29AB9 /* libPods-streamchainTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -477,8 +489,6 @@
 			children = (
 				8082B3F6AB5F9177D36513E6 /* Pods-streamchain.debug.xcconfig */,
 				3CE8BC7CA235BA10431A3D8E /* Pods-streamchain.release.xcconfig */,
-				2D98612D40BEEB995FB05949 /* Pods-streamchainTests.debug.xcconfig */,
-				BC059A2C2CD1E1E6EC86701E /* Pods-streamchainTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -546,6 +556,10 @@
 				{
 					ProductGroup = 5E91572E1DD0AC6500FF2AA8 /* Products */;
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
+				},
+				{
+					ProductGroup = 7B9E475E1E1C343F00937B46 /* Products */;
+					ProjectRef = ADFAD1E2E5BF4891B9FD9763 /* RCTCamera.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -682,6 +696,13 @@
 			fileType = wrapper.framework;
 			path = RCTPili.framework;
 			remoteRef = 7B9E46DE1E1C02AB00937B46 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7B9E47661E1C343F00937B46 /* libRCTCamera.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTCamera.a;
+			remoteRef = 7B9E47651E1C343F00937B46 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		7BA2D59E1E12E0630076BC96 /* libRCTImage-tvOS.a */ = {
@@ -884,13 +905,14 @@
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-pili/ios/RCTPili/RCTPili/**",
 					"$(SRCROOT)/../node_modules/react-native-permissions/**",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 				);
 				INFOPLIST_FILE = streamchain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/PLMediaStreamingKit/Pod/Library\"",
 					"\"${PODS_ROOT}/PLPlayerKit/Pod/Library/lib\"",
-					"$(inherited)",
+					"\"$(SRCROOT)/streamchain\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -918,18 +940,14 @@
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-pili/ios/RCTPili/RCTPili/**",
 					"$(SRCROOT)/../node_modules/react-native-permissions/**",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 				);
 				INFOPLIST_FILE = streamchain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/HappyDNS\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/RCTPili\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/React\"",
-					"\"$PODS_CONFIGURATION_BUILD_DIR/pili-librtmp\"",
 					"\"${PODS_ROOT}/PLMediaStreamingKit/Pod/Library\"",
 					"\"${PODS_ROOT}/PLPlayerKit/Pod/Library/lib\"",
-					"\"${PODS_ROOT}/HappyDNS",
+					"\"$(SRCROOT)/streamchain\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -986,6 +1004,7 @@
 					"$(SRCROOT)/../node_modules/react-native/ReactCommon/**",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-permissions/**",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1031,6 +1050,7 @@
 					"$(SRCROOT)/../node_modules/react-native/ReactCommon/**",
 					"$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
 					"$(SRCROOT)/../node_modules/react-native-permissions/**",
+					"$(SRCROOT)/../node_modules/react-native-camera/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

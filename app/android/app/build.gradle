@@ -127,6 +127,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-camera')
     compile project(':react-native-permissions')
     compile project(':react-native-pili')
     compile project(':react-native-code-push')
