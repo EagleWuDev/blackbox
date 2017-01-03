@@ -118,13 +118,6 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTLinking;
 		};
-		7B9E46991E1BF4EF00937B46 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7B9E468D1E1BF4EE00937B46 /* RCTLFLiveKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 95696ED71D59C63D00FF600F;
-			remoteInfo = RCTLFLiveKit;
-		};
 		7BA2D59D1E12E0630076BC96 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */;
@@ -241,7 +234,6 @@
 		5E91F2CA99D24C018E79E051 /* CodePush.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		605FBA87D6714FE885FDBC70 /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
-		7B9E468D1E1BF4EE00937B46 /* RCTLFLiveKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLFLiveKit.xcodeproj; path = "../node_modules/react-native-video-stream/ios/RCTLFLiveKit/RCTLFLiveKit.xcodeproj"; sourceTree = "<group>"; };
 		7B9E46AB1E1BF54B00937B46 /* LFLiveKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LFLiveKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B9E46AF1E1BF55F00937B46 /* LFLiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LFLiveKit.framework; path = "../node_modules/react-native-video-stream/ios/RCTLFLiveKit/build/Debug-iphoneos/LFLiveKit.framework"; sourceTree = "<group>"; };
 		7BA2D5B81E1418560076BC96 /* RCTPili.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPili.xcodeproj; path = "../node_modules/react-native-pili/ios/RCTPili/RCTPili.xcodeproj"; sourceTree = "<group>"; };
@@ -404,14 +396,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7B9E468E1E1BF4EE00937B46 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7B9E469A1E1BF4EF00937B46 /* libRCTLFLiveKit.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		7BA2D5B91E1418560076BC96 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,7 +423,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				7B9E468D1E1BF4EE00937B46 /* RCTLFLiveKit.xcodeproj */,
 				7BA2D5B81E1418560076BC96 /* RCTPili.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -591,10 +574,6 @@
 					ProjectRef = 00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */;
 				},
 				{
-					ProductGroup = 7B9E468E1E1BF4EE00937B46 /* Products */;
-					ProjectRef = 7B9E468D1E1BF4EE00937B46 /* RCTLFLiveKit.xcodeproj */;
-				},
-				{
 					ProductGroup = 78C398B11ACF4ADC00677621 /* Products */;
 					ProjectRef = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
 				},
@@ -715,13 +694,6 @@
 			fileType = archive.ar;
 			path = libRCTLinking.a;
 			remoteRef = 78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7B9E469A1E1BF4EF00937B46 /* libRCTLFLiveKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTLFLiveKit.a;
-			remoteRef = 7B9E46991E1BF4EF00937B46 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		7BA2D59E1E12E0630076BC96 /* libRCTImage-tvOS.a */ = {
