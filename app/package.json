@@ -16,6 +16,7 @@
     "react-native-code-push": "^1.16.1-beta",
     "react-native-dismiss-keyboard": "^1.0.0",
     "react-native-file-upload": "^1.0.4",
+    "react-native-motion-manager": "0.0.6",
     "react-native-permissions": "^0.2.5",
     "react-native-router-flux": "^3.37.0"
   },

@@ -9,10 +9,10 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#2e2e2e',
   },
-  welcome: {
-    fontSize: 20,
+  smallText: {
+    fontSize: 15,
     textAlign: 'center',
-    margin: 10,
+    color: '#fff'
   },
   instructions: {
     textAlign: 'center',
@@ -54,5 +54,12 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
     height: height,
     width: width
+  },
+  dataBox: {
+    backgroundColor: '#3d3d3d',
+    borderRadius: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    margin: 10
   }
 })
