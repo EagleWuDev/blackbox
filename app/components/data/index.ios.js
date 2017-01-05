@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Text,
   View,
@@ -17,6 +17,7 @@ import {
 
 // from toolbox
 import { flattenNum, toRevolutions } from '../toolbox/functions'
+import NavArrow from '../toolbox/NavArrow';
 
 const {height, width} = Dimensions.get('window');
 const styles = require('../styles');
@@ -110,6 +111,7 @@ module.exports = React.createClass({
         <View style={[styles.secondaryStreamButton,  {borderColor: this.state.listening ? '#eb3c00' : '#e2e2e2'}]} />
         <TouchableOpacity onPress={this.toggleListening} 
           style={[styles.streamButton, {backgroundColor: this.state.listening ? '#eb3c00' : '#e2e2e2'}]} />
+        <NavArrow screen={"pop"} arguments={{}} side={'left'}/>
       </View>
     );
   },

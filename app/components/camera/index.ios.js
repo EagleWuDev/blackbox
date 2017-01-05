@@ -15,6 +15,8 @@ import Camera from 'react-native-camera';
 
 const Permissions = require('react-native-permissions');
 
+import NavArrow from '../toolbox/NavArrow';
+
 const {height, width} = Dimensions.get('window');
 const styles = require('../styles');
 
@@ -91,6 +93,7 @@ module.exports = React.createClass({
             style={[styles.streamButton, {backgroundColor: this.state.active ? '#eb3c00' : '#e2e2e2'}]} 
             pressRetentionOffset={{top: height, left: width/2, bottom: 40, right: width/2}}/>
         </Camera>
+        <NavArrow screen={"Data"} arguments={{}} side={'right'}/>
       </View>
     );
   },
