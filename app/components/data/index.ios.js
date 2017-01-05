@@ -12,12 +12,13 @@ import { Actions } from 'react-native-router-flux';
 import {
   Accelerometer,
   Gyroscope,
-  Magnetometer
+  Magnetometer,
+  DeviceAngles
 } from 'NativeModules';
 
 // from toolbox
 import { flattenNum, toRevolutions } from '../toolbox/functions'
-import NavArrow from '../toolbox/NavArrow';
+import { DataBox, NavArrow } from '../toolbox/components'
 
 const {height, width} = Dimensions.get('window');
 const styles = require('../styles');
@@ -36,9 +37,9 @@ module.exports = React.createClass({
       gyroscopeX: 0,
       gyroscopeY: 0,
       gyroscopeZ: 0,
-      magnetometerX: 0,
-      magnetometerY: 0,
-      magnetometerZ: 0,
+      pitch: 0,
+      roll: 0,
+      yaw: 0,
       listening: false
     }
   },
@@ -62,31 +63,37 @@ module.exports = React.createClass({
         gyroscopeZ: data.rotationRate.z
       });
     });
-    // magetometer listener
-    Magnetometer.setMagnetometerUpdateInterval(0.1);
-    DeviceEventEmitter.addListener('MagnetometerData', function (data) {
+    // device attitude listener
+    DeviceAngles.setDeviceMotionUpdateInterval(0.1);
+    DeviceEventEmitter.addListener('AnglesData', function (data) {
       that.setState({
-        magnetometerX: data.magneticField.x,
-        magnetometerY: data.magneticField.y,
-        magnetometerZ: data.magneticField.z
+        pitch: data.pitch,
+        roll: data.roll,
+        yaw: data.yaw
       });
     });
+    // set up geolocation
+    navigator.geolocation.watchPosition();
   },
   toggleListening() {
     if (!this.state.listening) {
       // start all listeners
       this.setState({listening: true});
       Accelerometer.startAccelerometerUpdates(); 
+      DeviceAngles.startMotionUpdates();
       Gyroscope.startGyroUpdates();
-      Magnetometer.startMagnetometerUpdates();
     } else {
       // stop all listeners
       this.setState({listening: false});
       Accelerometer.stopAccelerometerUpdates();
+      DeviceAngles.stopMotionUpdates();
       Gyroscope.stopGyroUpdates();
-      Magnetometer.stopMagnetometerUpdates();
-
     }
+  },
+  toggleIntervals() {
+    Accelerometer.setAccelerometerUpdateInterval(1);
+    Gyroscope.setGyroUpdateInterval(1);
+    DeviceAngles.setDeviceMotionUpdateInterval(1);    
   },
   render() {
     return (
@@ -104,29 +111,15 @@ module.exports = React.createClass({
                  `y: ${flattenNum(toRevolutions(this.state.gyroscopeY))}`, 
                  `z: ${flattenNum(toRevolutions(this.state.gyroscopeZ))}`]}/>
         <DataBox 
-          title={'Magnetometer Data (µTesla)'} 
-          data={[`x: ${flattenNum(this.state.magnetometerX)}`, 
-                 `y: ${flattenNum(this.state.magnetometerX)}`, 
-                 `z: ${flattenNum(this.state.magnetometerX)}`]}/>
+          title={'Angles Data (degrees)'} 
+          data={[`pitch: ${flattenNum(this.state.pitch)}`, 
+                 `roll: ${flattenNum(this.state.roll)}`, 
+                 `yaw: ${flattenNum(this.state.yaw)}`]}/>
         <View style={[styles.secondaryStreamButton,  {borderColor: this.state.listening ? '#eb3c00' : '#e2e2e2'}]} />
         <TouchableOpacity onPress={this.toggleListening} 
           style={[styles.streamButton, {backgroundColor: this.state.listening ? '#eb3c00' : '#e2e2e2'}]} />
         <NavArrow screen={"pop"} arguments={{}} side={'left'}/>
       </View>
     );
-  },
-
-})
-
-var DataBox = React.createClass({
-  render() {
-    return (
-      <View style={styles.dataBox}>
-        <Text style={styles.smallText}>{this.props.title}</Text>
-        <View>
-          {this.props.data.map((elt,i) => <Text style={[styles.smallText, {textAlign: 'left'}]} key={i}>{elt}</Text>)}
-        </View>
-      </View>
-    )
   }
 })

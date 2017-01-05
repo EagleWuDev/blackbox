@@ -1,11 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  Text,
   View,
-  Dimensions,
-  Alert,
-  StatusBar,
-  DeviceEventEmitter,
   TouchableOpacity
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
