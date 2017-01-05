@@ -73,7 +73,7 @@ module.exports = React.createClass({
       });
     });
     // set up geolocation
-    navigator.geolocation.watchPosition();
+    // navigator.geolocation.watchPosition();
   },
   toggleListening() {
     if (!this.state.listening) {
