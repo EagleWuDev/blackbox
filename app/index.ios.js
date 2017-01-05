@@ -16,8 +16,8 @@ var app = React.createClass({
       <Router>
         <Scene key='root'>
           <Scene hideNavBar={true} key='Archive' component={Archive} title='Archive' />
-          <Scene hideNavBar={true} key='Data' component={Data} title='Data' initial={false} />
-          <Scene hideNavBar={true} key='Camera' component={Camera} title='Camera' initial={true} />
+          <Scene hideNavBar={true} key='Data' component={Data} title='Data' initial={true} />
+          <Scene hideNavBar={true} key='Camera' component={Camera} title='Camera' initial={false} />
           <Scene hideNavBar={true} key='History' component={History} title='History' />
           <Scene hideNavBar={true} key='Login' component={Login} title='Login' />
           <Scene hideNavBar={true} key='Signup' component={Signup} title='Signup' />
