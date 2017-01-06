@@ -28,10 +28,14 @@ const {height, width} = Dimensions.get('window');
 const styles = require('../styles');
 const uploadUri = 'https://eee0e3eb.ngrok.io/';
 
-var lastFiveSec = {};
-var maxCount = 10*5;
-var incident = {};
-const MAX_ACC = 8;
+var beforeIncident = {}; // rotating object to store motion data before accident
+var incident = {}; // rotating object to store motion data after accident
+
+// constants defining data collection
+const DATA_INTERVAL = 0.1 // data event firing interval (in seconds)
+const MAX_COUNT = 10*5; // max number of entries stored in beforeIncident object
+const MAX_ACC = 8; // acceleration value (in g's) that triggers video recording and a collision event
+const VIDEO_LENGTH = 5000; // length of video recorded for a collision event (in milliseconds)
 
 module.exports = React.createClass({
   getInitialState() {
@@ -147,23 +151,23 @@ module.exports = React.createClass({
       Accelerometer.stopAccelerometerUpdates();
       DeviceAngles.stopMotionUpdates();
       Gyroscope.stopGyroUpdates();
-      lastFiveSec = {};
+      beforeIncident = {};
 
     }
   },
   setUpDeviceMonitors() { // refactor this, it is offensive
     var that = this;
     // accelerometer listener 
-    Accelerometer.setAccelerometerUpdateInterval(0.1);
+    Accelerometer.setAccelerometerUpdateInterval(DATA_INTERVAL);
     DeviceEventEmitter.addListener('AccelerationData', function (data) {
       if (!that.state.collision) { // not currently in a collision => save data in rotating object
-        lastFiveSec[that.state.accelerometerIndex] = lastFiveSec[that.state.accelerometerIndex] || {};
-        lastFiveSec[that.state.accelerometerIndex].acceleration = {
+        beforeIncident[that.state.accelerometerIndex] = beforeIncident[that.state.accelerometerIndex] || {};
+        beforeIncident[that.state.accelerometerIndex].acceleration = {
           x: data.acceleration.x,
           y: data.acceleration.y,
           z: data.acceleration.z
         };
-        that.setState({accelerometerIndex: (that.state.accelerometerIndex+1)%maxCount});
+        that.setState({accelerometerIndex: (that.state.accelerometerIndex+1)%MAX_COUNT});
       } else { // data post collision
         incident[that.state.accelerometerIndexPost] = incident[that.state.accelerometerIndexPost] || {};
         incident[that.state.accelerometerIndexPost].acceleration = {
@@ -182,16 +186,16 @@ module.exports = React.createClass({
       }
     });
     // gyroscope listener
-    Gyroscope.setGyroUpdateInterval(0.1);
+    Gyroscope.setGyroUpdateInterval(DATA_INTERVAL);
     DeviceEventEmitter.addListener('GyroData', function (data) {
       if (!that.state.collision) { // not currently in a collision => save data in rotating object
-        lastFiveSec[that.state.gyroIndex] = lastFiveSec[that.state.gyroIndex] || {};
-        lastFiveSec[that.state.gyroIndex].rotationRate = {
+        beforeIncident[that.state.gyroIndex] = beforeIncident[that.state.gyroIndex] || {};
+        beforeIncident[that.state.gyroIndex].rotationRate = {
           x: data.rotationRate.x,
           y: data.rotationRate.y,
           z: data.rotationRate.z
         };
-        that.setState({gyroIndex: (that.state.gyroIndex+1)%maxCount});
+        that.setState({gyroIndex: (that.state.gyroIndex+1)%MAX_COUNT});
       } else { // data post collision
         incident[that.state.gyroIndexPost] = incident[that.state.gyroIndexPost] || {};
         incident[that.state.gyroIndexPost].rotationRate = {
@@ -203,16 +207,16 @@ module.exports = React.createClass({
       }
     });
     // device attitude listener
-    DeviceAngles.setDeviceMotionUpdateInterval(0.1);
+    DeviceAngles.setDeviceMotionUpdateInterval(DATA_INTERVAL);
     DeviceEventEmitter.addListener('AnglesData', function (data) {
       if (!that.state.collision) { // not currently in a collision => save data in rotating object
-        lastFiveSec[that.state.deviceIndex] = lastFiveSec[that.state.deviceIndex] || {};
-        lastFiveSec[that.state.deviceIndex].deviceAngles = {
+        beforeIncident[that.state.deviceIndex] = beforeIncident[that.state.deviceIndex] || {};
+        beforeIncident[that.state.deviceIndex].deviceAngles = {
           pitch: data.pitch,
           roll: data.roll,
           yaw: data.yaw
         };
-        that.setState({deviceIndex: (that.state.deviceIndex+1)%maxCount});
+        that.setState({deviceIndex: (that.state.deviceIndex+1)%MAX_COUNT});
       } else { // data post collision
         incident[that.state.deviceIndexPost] = incident[that.state.deviceIndexPost] || {};
         incident[that.state.deviceIndexPost].deviceAngles = {
@@ -234,14 +238,14 @@ module.exports = React.createClass({
     });
     Alert.alert('Collision Detected', 'We are have begun recording data on the incident');
     this.takeVideo();
-    console.log('DATA PRIOR TO INCIDENT');
-    console.log(lastFiveSec);
+    console.log('TRIGGER DATA');
+    console.log(beforeIncident[this.state.accelerometerIndex-1]);
     setTimeout(() => {
       this.toggleWatch();
       this.stopVideo();
       console.log('INCIDENT DATA');
       console.log(incident);
-    }, 5000); // stop recording 5 sec after start
+    }, VIDEO_LENGTH); // stop recording 5 sec after start
   },
   render() {
     return (
