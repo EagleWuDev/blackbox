@@ -116,7 +116,11 @@
                         <td>{{ entry.transactionId }}</td>
                         <td>{{ entry.carId }}</td>
                         <td><a target="_blank" href="https://ipfs.io/ipfs/{{ entry.ipfs }}">Ipfs Url</a></td>
-                        <td>{{ entry.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                        <td>
+                            {% if entry.timestamp %}
+                                {{ entry.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}
+                            {% endif %}
+                        </td>
                         <td>Tesla Model S</td>
                     </tr>
                 {% endfor %}

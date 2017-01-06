@@ -78,6 +78,8 @@ def getHashAndCarFromTransaction(transactionId):
     contract = g.eth_contract_factory(address=receipt['contractAddress'])
 
     block = g.web3.eth.getBlock(receipt['blockHash'])
+    if 'timestamp' not in block:
+        return {}
 
     return {
         'ipfs': contract.call().getHash(),
