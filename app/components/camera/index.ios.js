@@ -175,9 +175,9 @@ module.exports = React.createClass({
       }
 
       // not currently in a collision and acceleration indicative of possible incident
-      if (that.state.collision === false && (data.acceleration.x > MAX_ACC || 
-                                             data.acceleration.y > MAX_ACC || 
-                                             data.acceleration.z > MAX_ACC)) {
+      if (that.state.collision === false && (Math.abs(data.acceleration.x) > MAX_ACC || 
+                                             Math.abs(data.acceleration.y) > MAX_ACC || 
+                                             Math.abs(data.acceleration.z) > MAX_ACC)) {
         that.collisionProtocol()
       }
     });
