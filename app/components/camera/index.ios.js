@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Camera from 'react-native-camera';
+// import { FileUpload } from 'NativeModules';
 
 const Permissions = require('react-native-permissions');
 
@@ -43,10 +44,14 @@ module.exports = React.createClass({
           this.state.locationPermission === 'undetermined') {
         Alert.alert(
           'StreamChain would like access to your camera, microphone, and location',
-          'We use these to enable the core video streaming functionality of the app and enhance accuracy of collision data. Without these permissions, you will be unable to upload content.',
+          'We use these to enable the core video streaming functionality of the app and \
+           enhance accuracy of collision data. Without these permissions, you will be \
+           unable to upload content.',
           [
             {text: 'Not now', style: 'cancel'},
-            this.state.cameraPermission === 'undetermined' || this.state.microphonePermission === 'undetermined' || this.state.locationPermission === 'undetermined' ?
+            this.state.cameraPermission === 'undetermined' || 
+            this.state.microphonePermission === 'undetermined' || 
+            this.state.locationPermission === 'undetermined' ?
               {text: 'Okay', onPress: this._requestPermission}
               : {text: 'Open Settings', onPress: Permissions.openSettings} 
           ]
@@ -68,13 +73,62 @@ module.exports = React.createClass({
     this.setState({active: true})
     this.camera.capture().then(data => {
       this.setState({active: false})
-      Alert.alert('data captured',`${data.path} : ${data.size}`)
+      this.uploadFile(data)
+      //Alert.alert('data captured',`${data.path.split('/').slice(-1)} : ${data.size}`)
     });
   },
   stopVideo() {
     if (!this.state.active) return
     console.log('ending')
     this.camera.stopCapture()
+  },
+  uploadFile(data) {
+    var xhr = new XMLHttpRequest()
+
+    var video = {
+      uri: `file:${data.path}`,
+      type: 'video/quicktime',
+      name: data.path.split('/').slice(-1)
+    }
+
+    var body = new FormData();
+    body.append('carId', 3);
+    body.append('extras', 'All your base are belong to us');
+    body.append('video', video);
+
+    xhr.open('POST', 'http://8b4bafcf.ngrok.io/record_finished');
+    xhr.send(body);
+
+    xhr.onreadystatechange = function() {
+
+      if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+        Alert.alert('File Uploaded successfully', 'Congratulations!');
+      } else if (xhr.readyState == XMLHttpRequest.DONE) {
+        // alert(Object.keys(xhr).join(' '))
+        Alert.alert('File failed to upload', `Server responded with status ${xhr.status}`);
+      }
+    }
+
+    // var uploadData = {
+    //   uploadUrl: 'http://8b4bafcf.ngrok.io/record_finished',
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //   },
+    //   fields: {
+    //     carId: 3,
+    //     extras: 'All your base are belong to us'
+    //   },
+    //   files: [
+    //     {
+    //       filename: data.path.split('/').slice(-1),
+    //       filepath: data.path
+    //     }
+    //   ]
+    // };
+    // FileUpload.upload(uploadData, function(err, result) {
+    //   console.log('upload:', err, result);
+    // })
   },
   render() {
     return (
