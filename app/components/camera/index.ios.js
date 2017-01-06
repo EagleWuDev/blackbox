@@ -26,16 +26,18 @@ import { NavArrow } from '../toolbox/components';
 
 const {height, width} = Dimensions.get('window');
 const styles = require('../styles');
-const uploadUri = 'https://c185cbf1.ngrok.io/';
+const uploadUri = 'https://a0e34dae.ngrok.io/';
 
 var beforeIncident = {}; // rotating object to store motion data before accident
 var incident = {}; // rotating object to store motion data after accident
+var interval; // used to continuously monitor video footage
 
 // constants defining data collection
 const DATA_INTERVAL = 0.1 // data event firing interval (in seconds)
 const MAX_COUNT = 10*5; // max number of entries stored in beforeIncident object
 const MAX_ACC = 8; // acceleration value (in g's) that triggers video recording and a collision event
 const VIDEO_LENGTH = 5000; // length of video recorded for a collision event (in milliseconds)
+const TEMP_VIDEO_LENGTH = 2000 // length of temporary video files (in milliseconds)
 
 module.exports = React.createClass({
   getInitialState() {
@@ -102,8 +104,10 @@ module.exports = React.createClass({
     this.setState({active: true})
     this.camera.capture().then(data => {
       this.setState({active: false})
-      this.uploadFile(data)
-      //Alert.alert('data captured',`${data.path.split('/').slice(-1)} : ${data.size}`)
+      if (this.state.collision) {
+        console.log('uploading file')
+        this.uploadFile(data) // only upload if collision
+      }
     });
   },
   stopVideo() {
@@ -111,7 +115,14 @@ module.exports = React.createClass({
     console.log('ending')
     this.camera.stopCapture()
   },
+  setupInterval() {
+    interval = setInterval(() => {
+      this.takeVideo();
+      setTimeout(() => { if (!this.state.collision) this.stopVideo() }, TEMP_VIDEO_LENGTH-50);
+    }, TEMP_VIDEO_LENGTH);
+  },
   uploadFile(data) {
+    this.setState({collision: false}) // reset state so more can be recorded after
     var xhr = new XMLHttpRequest()
     var video = {
       uri: `file://${data.path}`,
@@ -131,7 +142,6 @@ module.exports = React.createClass({
     }
     xhr.send(body);
   },
-  // startRecordingData() {},
   toggleWatch() { // toggles listeners (accelerometer)
     if (!this.state.watching) {
       // start all listeners
@@ -140,19 +150,21 @@ module.exports = React.createClass({
       Accelerometer.startAccelerometerUpdates(); 
       DeviceAngles.startMotionUpdates();
       Gyroscope.startGyroUpdates();
+      this.setupInterval()
     } else {
       // stop all listeners
       this.setState({
         watching: false,
         accelerometerIndex: 0,
         gyroIndex: 0,
-        deviceIndex: 0
+        deviceIndex: 0,
+        active: false
       });
+      clearInterval(interval)
       Accelerometer.stopAccelerometerUpdates();
       DeviceAngles.stopMotionUpdates();
       Gyroscope.stopGyroUpdates();
       beforeIncident = {};
-
     }
   },
   setUpDeviceMonitors() { // refactor this, it is offensive
@@ -237,14 +249,16 @@ module.exports = React.createClass({
       deviceIndexPost: 0
     });
     Alert.alert('Collision Detected', 'We are have begun recording data on the incident');
-    this.takeVideo();
+    
+    clearInterval(interval)
+    if (!this.state.active) this.takeVideo();
+    
     console.log('TRIGGER DATA');
     console.log(beforeIncident[this.state.accelerometerIndex-1]);
     setTimeout(() => {
-      this.toggleWatch();
       this.stopVideo();
-      console.log('INCIDENT DATA');
-      console.log(incident);
+      this.toggleWatch();
+      console.log('INCIDENT DATA RECORDED');
     }, VIDEO_LENGTH); // stop recording 5 sec after start
   },
   render() {
@@ -262,15 +276,15 @@ module.exports = React.createClass({
           captureAudio={true}
           captureTarget={Camera.constants.CaptureTarget.temp}
           captureQuality={Camera.constants.CaptureQuality.medium}>
-          <View style={[styles.secondaryStreamButton,  {borderColor: this.state.active ? '#eb3c00' : this.state.watching ? '#F7C548' : '#e2e2e2'}]} />
+          <View style={[styles.secondaryStreamButton,  {borderColor: this.state.collision ? '#eb3c00' : this.state.watching ? '#F7C548' : '#e2e2e2'}]} />
           <TouchableOpacity 
             onPress={this.toggleWatch}
-            style={[styles.streamButton, {backgroundColor: this.state.active ? '#eb3c00' : this.state.watching ? '#F7C548' : '#e2e2e2'}]} 
+            style={[styles.streamButton, {backgroundColor: this.state.collision ? '#eb3c00' : this.state.watching ? '#F7C548' : '#e2e2e2'}]} 
             pressRetentionOffset={{top: height, left: width/2, bottom: 40, right: width/2}}/>
         </Camera>
         {Boolean(this.state.watching) && (
-          <View style={[styles.topBar, {backgroundColor: this.state.active ? '#eb3c00' : '#F7C548'}]}> 
-            <Text style={styles.barText}>{this.state.active ? 'COLLISION DETECTED' : 'WATCHING MOVEMENT'}</Text>
+          <View style={[styles.topBar, {backgroundColor: this.state.collision ? '#eb3c00' : '#F7C548'}]}> 
+            <Text style={styles.barText}>{this.state.collision ? 'COLLISION DETECTED' : 'WATCHING MOVEMENT'}</Text>
           </View>
         )}
         <NavArrow screen={"Data"} arguments={{}} side={'right'}/>
