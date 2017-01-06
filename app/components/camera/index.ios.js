@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
   DeviceEventEmitter
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { Actions, ActionConst } from 'react-native-router-flux';
 import Camera from 'react-native-camera';
 import {
   Accelerometer,
@@ -37,7 +37,7 @@ const DATA_INTERVAL = 0.1 // data event firing interval (in seconds)
 const MAX_COUNT = 10*5; // max number of entries stored in beforeIncident object
 const MAX_ACC = 8; // acceleration value (in g's) that triggers video recording and a collision event
 const VIDEO_LENGTH = 5000; // length of video recorded for a collision event (in milliseconds)
-const TEMP_VIDEO_LENGTH = 2000 // length of temporary video files (in milliseconds)
+const TEMP_VIDEO_LENGTH = 3000 // length of temporary video files (in milliseconds)
 
 module.exports = React.createClass({
   getInitialState() {
@@ -58,6 +58,7 @@ module.exports = React.createClass({
       active: false,
       watching: false,
       collision: false,
+      uploading: false,
       // collision data
       collisionStart: ''
     }
@@ -122,7 +123,7 @@ module.exports = React.createClass({
     }, TEMP_VIDEO_LENGTH);
   },
   uploadFile(data) {
-    this.setState({collision: false}) // reset state so more can be recorded after
+    this.setState({collision: false, uploading: true}) // reset state so more can be recorded after
     var xhr = new XMLHttpRequest()
     var video = {
       uri: `file://${data.path}`,
@@ -134,7 +135,8 @@ module.exports = React.createClass({
     body.append('extras', 'All your base are belong to us');
     body.append('video', video);
     xhr.open('POST', `${uploadUri}record_finished`);
-    xhr.onload = function() {
+    xhr.onload = () => {
+      this.setState({uploading: false});
       if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) 
         Alert.alert('File Uploaded successfully', 'Congratulations!');
       else if (xhr.readyState == XMLHttpRequest.DONE) 
@@ -171,7 +173,7 @@ module.exports = React.createClass({
     var that = this;
     // accelerometer listener 
     Accelerometer.setAccelerometerUpdateInterval(DATA_INTERVAL);
-    DeviceEventEmitter.addListener('AccelerationData', function (data) {
+    this.accelerationListener = DeviceEventEmitter.addListener('AccelerationData', function (data) {
       if (!that.state.collision) { // not currently in a collision => save data in rotating object
         beforeIncident[that.state.accelerometerIndex] = beforeIncident[that.state.accelerometerIndex] || {};
         beforeIncident[that.state.accelerometerIndex].acceleration = {
@@ -199,7 +201,7 @@ module.exports = React.createClass({
     });
     // gyroscope listener
     Gyroscope.setGyroUpdateInterval(DATA_INTERVAL);
-    DeviceEventEmitter.addListener('GyroData', function (data) {
+    this.rotationListener = DeviceEventEmitter.addListener('GyroData', function (data) {
       if (!that.state.collision) { // not currently in a collision => save data in rotating object
         beforeIncident[that.state.gyroIndex] = beforeIncident[that.state.gyroIndex] || {};
         beforeIncident[that.state.gyroIndex].rotationRate = {
@@ -220,7 +222,7 @@ module.exports = React.createClass({
     });
     // device attitude listener
     DeviceAngles.setDeviceMotionUpdateInterval(DATA_INTERVAL);
-    DeviceEventEmitter.addListener('AnglesData', function (data) {
+    this.deviceListener = DeviceEventEmitter.addListener('AnglesData', function (data) {
       if (!that.state.collision) { // not currently in a collision => save data in rotating object
         beforeIncident[that.state.deviceIndex] = beforeIncident[that.state.deviceIndex] || {};
         beforeIncident[that.state.deviceIndex].deviceAngles = {
@@ -261,6 +263,12 @@ module.exports = React.createClass({
       console.log('INCIDENT DATA RECORDED');
     }, VIDEO_LENGTH); // stop recording 5 sec after start
   },
+  toData() {
+    this.accelerationListener.remove();
+    this.rotationListener.remove();
+    this.deviceListener.remove();
+    Actions.Data({type: ActionConst.REPLACE });
+  },
   render() {
     return (
       <View style={styles.container} >
@@ -276,18 +284,18 @@ module.exports = React.createClass({
           captureAudio={true}
           captureTarget={Camera.constants.CaptureTarget.temp}
           captureQuality={Camera.constants.CaptureQuality.medium}>
-          <View style={[styles.secondaryStreamButton,  {borderColor: this.state.collision ? '#eb3c00' : this.state.watching ? '#F7C548' : '#e2e2e2'}]} />
+          <View style={[styles.secondaryStreamButton,  {borderColor: this.state.collision ? '#eb3c00' : this.state.watching ? '#F7C548' : this.state.uploading ? '#604572' : '#e2e2e2'}]} />
           <TouchableOpacity 
             onPress={this.toggleWatch}
-            style={[styles.streamButton, {backgroundColor: this.state.collision ? '#eb3c00' : this.state.watching ? '#F7C548' : '#e2e2e2'}]} 
+            style={[styles.streamButton, {backgroundColor: this.state.collision ? '#eb3c00' : this.state.watching ? '#F7C548' : this.state.uploading ? '#604572' : '#e2e2e2'}]} 
             pressRetentionOffset={{top: height, left: width/2, bottom: 40, right: width/2}}/>
         </Camera>
-        {Boolean(this.state.watching) && (
-          <View style={[styles.topBar, {backgroundColor: this.state.collision ? '#eb3c00' : '#F7C548'}]}> 
-            <Text style={styles.barText}>{this.state.collision ? 'COLLISION DETECTED' : 'WATCHING MOVEMENT'}</Text>
+        {Boolean(this.state.watching || this.state.uploading) && (
+          <View style={[styles.topBar, {backgroundColor: this.state.collision ? '#eb3c00' : this.state.uploading ? '#604572' : '#F7C548'}]}> 
+            <Text style={styles.barText}>{this.state.collision ? 'COLLISION DETECTED' : this.state.uploading ? 'UPLOADING FILE' : 'WATCHING MOVEMENT'}</Text>
           </View>
         )}
-        <NavArrow screen={"Data"} arguments={{}} side={'right'}/>
+        <NavArrow action={this.toData} side={'right'}/>
       </View>
     );
   },

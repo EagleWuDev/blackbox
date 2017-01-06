@@ -8,7 +8,7 @@ import {
   DeviceEventEmitter,
   TouchableOpacity
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { Actions, ActionConst } from 'react-native-router-flux';
 import {
   Accelerometer,
   Gyroscope,
@@ -31,6 +31,9 @@ module.exports = React.createClass({
       accelerationX: 0,
       accelerationY: 0,
       accelerationZ: 0,
+      maxAccelerationX: 0,
+      maxAccelerationY: 0,
+      maxAccelerationZ: 0,
       gyroscopeX: 0,
       gyroscopeY: 0,
       gyroscopeZ: 0,
@@ -44,16 +47,19 @@ module.exports = React.createClass({
     var that = this;
     // accelerometer listener 
     Accelerometer.setAccelerometerUpdateInterval(0.1);
-    DeviceEventEmitter.addListener('AccelerationData', function (data) {
+    this.accelerationListener = DeviceEventEmitter.addListener('AccelerationData', function (data) {
       that.setState({
         accelerationX: data.acceleration.x,
         accelerationY: data.acceleration.y,
-        accelerationZ: data.acceleration.z
+        accelerationZ: data.acceleration.z,
+        maxAccelerationX: Math.abs(data.acceleration.x) > that.state.maxAccelerationX ? Math.abs(data.acceleration.x) : that.state.maxAccelerationX,
+        maxAccelerationY: Math.abs(data.acceleration.y) > that.state.maxAccelerationY ? Math.abs(data.acceleration.y) : that.state.maxAccelerationY,
+        maxAccelerationZ: Math.abs(data.acceleration.z) > that.state.maxAccelerationZ ? Math.abs(data.acceleration.z) : that.state.maxAccelerationZ,
       });
     });
     // gyroscope listener
     Gyroscope.setGyroUpdateInterval(0.1);
-    DeviceEventEmitter.addListener('GyroData', function (data) {
+    this.rotationListener = DeviceEventEmitter.addListener('GyroData', function (data) {
       that.setState({
         gyroscopeX: data.rotationRate.x,
         gyroscopeY: data.rotationRate.y,
@@ -62,7 +68,7 @@ module.exports = React.createClass({
     });
     // device attitude listener
     DeviceAngles.setDeviceMotionUpdateInterval(0.1);
-    DeviceEventEmitter.addListener('AnglesData', function (data) {
+    this.deviceListener = DeviceEventEmitter.addListener('AnglesData', function (data) {
       that.setState({
         pitch: data.pitch,
         roll: data.roll,
@@ -92,6 +98,11 @@ module.exports = React.createClass({
     Gyroscope.setGyroUpdateInterval(1);
     DeviceAngles.setDeviceMotionUpdateInterval(1);    
   },
+  componentWillUnmount() {
+    this.accelerationListener.remove();
+    this.rotationListener.remove();
+    this.deviceListener.remove();
+  },
   render() {
     return (
       <View style={styles.container} >
@@ -102,6 +113,11 @@ module.exports = React.createClass({
           data={[`x: ${flattenNum(this.state.accelerationX)}`, 
                  `y: ${flattenNum(this.state.accelerationY)}`, 
                  `z: ${flattenNum(this.state.accelerationZ)}`]}/>
+        <DataBox 
+          title={'Max Accelerometer Data (|G\'s|)'} 
+          data={[`x: ${flattenNum(this.state.maxAccelerationX)}`, 
+                 `y: ${flattenNum(this.state.maxAccelerationY)}`, 
+                 `z: ${flattenNum(this.state.maxAccelerationZ)}`]}/>
         <DataBox 
           title={'Gyroscope Data (rps)'} 
           data={[`x: ${flattenNum(toRevolutions(this.state.gyroscopeX))}`, 
@@ -115,7 +131,7 @@ module.exports = React.createClass({
         <View style={[styles.secondaryStreamButton,  {borderColor: this.state.listening ? '#eb3c00' : '#e2e2e2'}]} />
         <TouchableOpacity onPress={this.toggleListening} 
           style={[styles.streamButton, {backgroundColor: this.state.listening ? '#eb3c00' : '#e2e2e2'}]} />
-        <NavArrow screen={"pop"} arguments={{}} side={'left'}/>
+        <NavArrow action={() => Actions.Camera({type: ActionConst.REPLACE})} side={'left'}/>
       </View>
     );
   }
