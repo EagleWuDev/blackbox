@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Camera from 'react-native-camera';
-// import { FileUpload } from 'NativeModules';
 
 const Permissions = require('react-native-permissions');
 
@@ -20,8 +19,6 @@ import { NavArrow } from '../toolbox/components';
 
 const {height, width} = Dimensions.get('window');
 const styles = require('../styles');
-
-// var zoom = 1;
 
 module.exports = React.createClass({
   getInitialState() {
@@ -86,21 +83,17 @@ module.exports = React.createClass({
     var xhr = new XMLHttpRequest()
 
     var video = {
-      uri: `file:${data.path}`,
+      uri: `file://${data.path}`,
       type: 'video/quicktime',
-      name: data.path.split('/').slice(-1)
+      name: data.path.split('/').slice(-1)[0]
     }
-
+    console.log(video)
     var body = new FormData();
     body.append('carId', 3);
     body.append('extras', 'All your base are belong to us');
     body.append('video', video);
-
-    xhr.open('POST', 'http://8b4bafcf.ngrok.io/record_finished');
-    xhr.send(body);
-
-    xhr.onreadystatechange = function() {
-
+    xhr.open('POST', 'https://8b4bafcf.ngrok.io/record_finished');
+    xhr.onload = function() {
       if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
         Alert.alert('File Uploaded successfully', 'Congratulations!');
       } else if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -108,27 +101,7 @@ module.exports = React.createClass({
         Alert.alert('File failed to upload', `Server responded with status ${xhr.status}`);
       }
     }
-
-    // var uploadData = {
-    //   uploadUrl: 'http://8b4bafcf.ngrok.io/record_finished',
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //   },
-    //   fields: {
-    //     carId: 3,
-    //     extras: 'All your base are belong to us'
-    //   },
-    //   files: [
-    //     {
-    //       filename: data.path.split('/').slice(-1),
-    //       filepath: data.path
-    //     }
-    //   ]
-    // };
-    // FileUpload.upload(uploadData, function(err, result) {
-    //   console.log('upload:', err, result);
-    // })
+    xhr.send(body);
   },
   render() {
     return (
