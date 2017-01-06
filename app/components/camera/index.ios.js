@@ -262,12 +262,17 @@ module.exports = React.createClass({
           captureAudio={true}
           captureTarget={Camera.constants.CaptureTarget.temp}
           captureQuality={Camera.constants.CaptureQuality.medium}>
-          <View style={[styles.secondaryStreamButton,  {borderColor: this.state.active ? '#eb3c00' : '#e2e2e2'}]} />
+          <View style={[styles.secondaryStreamButton,  {borderColor: this.state.active ? '#eb3c00' : this.state.watching ? '#F7C548' : '#e2e2e2'}]} />
           <TouchableOpacity 
             onPress={this.toggleWatch}
-            style={[styles.streamButton, {backgroundColor: this.state.active ? '#eb3c00' : '#e2e2e2'}]} 
+            style={[styles.streamButton, {backgroundColor: this.state.active ? '#eb3c00' : this.state.watching ? '#F7C548' : '#e2e2e2'}]} 
             pressRetentionOffset={{top: height, left: width/2, bottom: 40, right: width/2}}/>
         </Camera>
+        {Boolean(this.state.watching) && (
+          <View style={[styles.topBar, {backgroundColor: this.state.active ? '#eb3c00' : '#F7C548'}]}> 
+            <Text style={styles.barText}>{this.state.active ? 'COLLISION DETECTED' : 'WATCHING MOVEMENT'}</Text>
+          </View>
+        )}
         <NavArrow screen={"Data"} arguments={{}} side={'right'}/>
       </View>
     );

@@ -61,5 +61,20 @@ module.exports = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     margin: 10
+  },
+  topBar: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    width: width,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 25,
+    paddingBottom: 10
+  },
+  barText: {
+    fontSize: 25,
+    color: '#fff',
+    textAlign: 'center'
   }
 })
