@@ -1,4 +1,4 @@
-# streamchain
+# blackbox
 
 Hackathon project that brings streamed video into the blockchain
 
