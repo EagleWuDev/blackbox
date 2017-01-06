@@ -264,6 +264,9 @@ module.exports = React.createClass({
     }, VIDEO_LENGTH); // stop recording 5 sec after start
   },
   toData() {
+    if (this.state.active || this.state.uploading) 
+      return Alert.alert('Hold on!', 'You can\'t exit the page while data is recording.')
+    if (this.state.watching) this.toggleWatch();
     this.accelerationListener.remove();
     this.rotationListener.remove();
     this.deviceListener.remove();

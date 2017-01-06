@@ -99,6 +99,7 @@ module.exports = React.createClass({
     DeviceAngles.setDeviceMotionUpdateInterval(1);    
   },
   componentWillUnmount() {
+    if (this.state.listening) this.toggleListening();
     this.accelerationListener.remove();
     this.rotationListener.remove();
     this.deviceListener.remove();
