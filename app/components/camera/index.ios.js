@@ -138,10 +138,17 @@ module.exports = React.createClass({
       Gyroscope.startGyroUpdates();
     } else {
       // stop all listeners
-      this.setState({watching: false});
+      this.setState({
+        watching: false,
+        accelerometerIndex: 0,
+        gyroIndex: 0,
+        deviceIndex: 0
+      });
       Accelerometer.stopAccelerometerUpdates();
       DeviceAngles.stopMotionUpdates();
       Gyroscope.stopGyroUpdates();
+      lastFiveSec = {};
+
     }
   },
   setUpDeviceMonitors() { // refactor this, it is offensive
@@ -218,14 +225,22 @@ module.exports = React.createClass({
     });
   },
   collisionProtocol() {
-    this.setState({collision: true, collisionStart: new Date()});
+    this.setState({
+      collision: true, 
+      collisionStart: new Date(),
+      accelerometerIndexPost: 0,
+      gyroIndexPost: 0,
+      deviceIndexPost: 0
+    });
     Alert.alert('Collision Detected', 'We are have begun recording data on the incident');
     this.takeVideo();
-    console.log(lastFiveSec)
+    console.log('DATA PRIOR TO INCIDENT');
+    console.log(lastFiveSec);
     setTimeout(() => {
       this.toggleWatch();
       this.stopVideo();
-      console.log(incident)
+      console.log('INCIDENT DATA');
+      console.log(incident);
     }, 5000); // stop recording 5 sec after start
   },
   render() {
