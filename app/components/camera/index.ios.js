@@ -26,7 +26,7 @@ import { NavArrow } from '../toolbox/components';
 
 const {height, width} = Dimensions.get('window');
 const styles = require('../styles');
-const uploadUri = 'https://eee0e3eb.ngrok.io/';
+const uploadUri = 'https://c185cbf1.ngrok.io/';
 
 var beforeIncident = {}; // rotating object to store motion data before accident
 var incident = {}; // rotating object to store motion data after accident
