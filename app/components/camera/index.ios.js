@@ -8,10 +8,17 @@ import {
   TouchableHighlight,
   Alert,
   StatusBar,
-  TouchableOpacity
+  TouchableOpacity,
+  DeviceEventEmitter
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Camera from 'react-native-camera';
+import {
+  Accelerometer,
+  Gyroscope,
+  Magnetometer,
+  DeviceAngles
+} from 'NativeModules';
 
 const Permissions = require('react-native-permissions');
 
@@ -19,6 +26,12 @@ import { NavArrow } from '../toolbox/components';
 
 const {height, width} = Dimensions.get('window');
 const styles = require('../styles');
+const uploadUri = 'https://eee0e3eb.ngrok.io/';
+
+var lastFiveSec = {};
+var maxCount = 10*5;
+var incident = {};
+const MAX_ACC = 4;
 
 module.exports = React.createClass({
   getInitialState() {
@@ -26,10 +39,17 @@ module.exports = React.createClass({
       active: false,
       cameraPermission: 'undetermined',
       microphonePermission: 'undetermined',
-      locationPermission: 'undetermined'
+      locationPermission: 'undetermined',
+      accelerometerIndex: 0,
+      gyroIndex: 0,
+      deviceIndex: 0,
+      watching: false,
+      collision: false,
+      collisionStart: ''
     }
   },
   componentDidMount() {
+    this.setUpDeviceMonitors();
     Permissions.checkMultiplePermissions(['camera', 'microphone', 'location']).then(resp => {
       this.setState({ 
         cameraPermission: resp.camera,
@@ -81,27 +101,94 @@ module.exports = React.createClass({
   },
   uploadFile(data) {
     var xhr = new XMLHttpRequest()
-
     var video = {
       uri: `file://${data.path}`,
       type: 'video/quicktime',
       name: data.path.split('/').slice(-1)[0]
     }
-    console.log(video)
     var body = new FormData();
     body.append('carId', 3);
     body.append('extras', 'All your base are belong to us');
     body.append('video', video);
-    xhr.open('POST', 'https://8b4bafcf.ngrok.io/record_finished');
+    xhr.open('POST', `${uploadUri}record_finished`);
     xhr.onload = function() {
-      if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+      if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) 
         Alert.alert('File Uploaded successfully', 'Congratulations!');
-      } else if (xhr.readyState == XMLHttpRequest.DONE) {
-        // alert(Object.keys(xhr).join(' '))
+      else if (xhr.readyState == XMLHttpRequest.DONE) 
         Alert.alert('File failed to upload', `Server responded with status ${xhr.status}`);
-      }
     }
     xhr.send(body);
+  },
+  // startRecordingData() {},
+  toggleWatch() { // toggles listeners (accelerometer)
+    if (!this.state.watching) {
+      // start all listeners
+      console.log('watch started')
+      this.setState({watching: true});
+      Accelerometer.startAccelerometerUpdates(); 
+      DeviceAngles.startMotionUpdates();
+      Gyroscope.startGyroUpdates();
+    } else {
+      // stop all listeners
+      this.setState({watching: false});
+      Accelerometer.stopAccelerometerUpdates();
+      DeviceAngles.stopMotionUpdates();
+      Gyroscope.stopGyroUpdates();
+    }
+  },
+  setUpDeviceMonitors() {
+    var that = this;
+    // accelerometer listener 
+    Accelerometer.setAccelerometerUpdateInterval(0.1);
+    DeviceEventEmitter.addListener('AccelerationData', function (data) {
+      if (!that.state.collision) { // not currently in a collision => save data in rotating object
+        lastFiveSec[that.state.accelerometerIndex] = lastFiveSec[that.state.accelerometerIndex] || {};
+        lastFiveSec[that.state.accelerometerIndex].acceleration = {
+          x: data.acceleration.x,
+          y: data.acceleration.y,
+          z: data.acceleration.z
+        };
+        that.setState({accelerometerIndex: (that.state.accelerometerIndex+1)%maxCount});
+      } 
+
+      // not currently in a collision and acceleration indicative of possible incident
+      if (that.state.collision === false && (data.acceleration.x > MAX_ACC || 
+                                             data.acceleration.y > MAX_ACC || 
+                                             data.acceleration.z > MAX_ACC)) {
+        that.setState({collision: true, collisionStart: new Date()});
+        Alert.alert('Collision Detected', 'We are have begun recording data on the incident');
+        that.takeVideo();
+        that.toggleWatch();
+        console.log(lastFiveSec)
+        setTimeout(() => that.stopVideo(), 5000); // stop recording 5 sec after start
+      }
+    });
+    // gyroscope listener
+    Gyroscope.setGyroUpdateInterval(0.1);
+    DeviceEventEmitter.addListener('GyroData', function (data) {
+      if (!that.state.collision) { // not currently in a collision => save data in rotating object
+        lastFiveSec[that.state.gyroIndex] = lastFiveSec[that.state.gyroIndex] || {};
+        lastFiveSec[that.state.gyroIndex].rotationRate = {
+          x: data.rotationRate.x,
+          y: data.rotationRate.y,
+          z: data.rotationRate.z
+        };
+        that.setState({gyroIndex: (that.state.gyroIndex+1)%maxCount});
+      } 
+    });
+    // device attitude listener
+    DeviceAngles.setDeviceMotionUpdateInterval(0.1);
+    DeviceEventEmitter.addListener('AnglesData', function (data) {
+      if (!that.state.collision) { // not currently in a collision => save data in rotating object
+        lastFiveSec[that.state.deviceIndex] = lastFiveSec[that.state.deviceIndex] || {};
+        lastFiveSec[that.state.deviceIndex].deviceAngles = {
+          pitch: data.pitch,
+          roll: data.roll,
+          yaw: data.yaw
+        };
+        that.setState({deviceIndex: (that.state.deviceIndex+1)%maxCount});
+      } 
+    });
   },
   render() {
     return (
@@ -120,8 +207,7 @@ module.exports = React.createClass({
           captureQuality={Camera.constants.CaptureQuality.medium}>
           <View style={[styles.secondaryStreamButton,  {borderColor: this.state.active ? '#eb3c00' : '#e2e2e2'}]} />
           <TouchableOpacity 
-            onPressIn={this.takeVideo} 
-            onPressOut={this.stopVideo} 
+            onPress={this.toggleWatch}
             style={[styles.streamButton, {backgroundColor: this.state.active ? '#eb3c00' : '#e2e2e2'}]} 
             pressRetentionOffset={{top: height, left: width/2, bottom: 40, right: width/2}}/>
         </Camera>
@@ -130,3 +216,5 @@ module.exports = React.createClass({
     );
   },
 })
+            // onPressIn={this.takeVideo} 
+            // onPressOut={this.stopVideo} 

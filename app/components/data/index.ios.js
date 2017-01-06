@@ -25,9 +25,6 @@ const styles = require('../styles');
 
 var alerted = 1;
 
-// function flattenNum(float) { return Math.floor(float*10000)/10000; };
-// function toRevolutions(gyroDataRAW) { return gyroDataRAW/Math.PI }
-
 module.exports = React.createClass({
   getInitialState() {
     return {
