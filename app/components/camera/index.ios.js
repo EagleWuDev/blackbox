@@ -31,7 +31,7 @@ const uploadUri = 'https://eee0e3eb.ngrok.io/';
 var lastFiveSec = {};
 var maxCount = 10*5;
 var incident = {};
-const MAX_ACC = 4;
+const MAX_ACC = 8;
 
 module.exports = React.createClass({
   getInitialState() {
