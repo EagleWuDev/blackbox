@@ -1,7 +1,8 @@
-from flask import Flask, request, jsonify, abort, g
+from flask import Flask, request, jsonify, abort, g, render_template
 from werkzeug.utils import secure_filename
 from bson import ObjectId
 from web3 import Web3, IPCProvider
+from datetime import datetime
 import ipfsapi
 import os
 import ffmpy
@@ -15,7 +16,7 @@ CONTRACT_CODE =  '60606040523461000057604051610489380380610489833981016040528080
 ACCOUNT_PASSWORD = '1'
 
 web3 = Web3(IPCProvider())
-# web3.personal.newAccount(ACCOUNT_PASSWORD)
+web3.personal.newAccount(ACCOUNT_PASSWORD)
 web3.personal.unlockAccount(web3.eth.accounts[0], ACCOUNT_PASSWORD)
 web3.miner.start(1)
 
@@ -32,6 +33,23 @@ def before_request():
     g.web3.personal.unlockAccount(g.web3.eth.accounts[0], ACCOUNT_PASSWORD)
 
     g.eth_contract_factory = g.web3.eth.contract(json.loads(CONTRACT_ABI_STRING_JSON), code=CONTRACT_CODE)
+
+
+@app.route('/index')
+def index():
+    documents = g.mongo_collection.find({})
+    data = []
+
+    for doc in documents:
+        if 'transactionId' in doc:
+            data.append(
+                {
+                    **doc,
+                    **getHashAndCarFromTransaction(doc['transactionId'])
+                }
+            )
+
+    return render_template('index.html', entries=data)
 
 
 @app.route('/recent')
@@ -59,15 +77,18 @@ def getHashAndCarFromTransaction(transactionId):
 
     contract = g.eth_contract_factory(address=receipt['contractAddress'])
 
+    block = g.web3.eth.getBlock(receipt['blockHash'])
+
     return {
         'ipfs': contract.call().getHash(),
-        'carId': contract.call().getCar()
+        'carId': contract.call().getCar(),
+        'timestamp': datetime.fromtimestamp(block['timestamp'])
     }
 
 
 @app.route('/record_finished', methods=['POST'])
 def record_finished():
-    if 'video' not in request.files and 'extras' not in request.form and 'carId' not in request.form:
+    if 'video' not in request.files and 'carId' not in request.form:
         abort(400)
 
     source_file = request.files['video']
@@ -90,20 +111,14 @@ def record_finished():
 
     ff.run()
 
-    # save the 'extras' form input into a separate file
-    with open(os.path.join(os.path.dirname(target_file), 'extras.txt'), 'w') as handle:
-        handle.write(request.form['carId'])
-        handle.write('\n\n***\n\n')
-        handle.write(request.form['extras'])
-
     # add to ipfs
-    ipfs_add_res = g.ipfs_api_conn.add(os.path.dirname(target_file))
+    ipfs_folder_to_add = os.path.dirname(target_file)
+    ipfs_add_res = g.ipfs_api_conn.add(ipfs_folder_to_add, recursive=True)
 
-    # get the hash of the folder object
-    # todo make this less bad -- folder object should have name with fewest characters/shortest length
+    # since adding the folder only works randomly, just save the video url
     folder_obj = None
     for item in ipfs_add_res:
-        if item['Name'] == token:
+        if item['Name'].endswith('video.mp4'):
             folder_obj = item
 
     # insert into ethereum chain as a contract
@@ -115,7 +130,6 @@ def record_finished():
         },
         {
             '$set': {
-                'extras': request.form['extras'],
                 'carId': request.form['carId'],
                 'data': folder_obj,
                 'transactionId': transaction_id
@@ -123,7 +137,7 @@ def record_finished():
         }
     )
 
-    return ''
+    return 'you did it'
 
 
 if __name__ == '__main__':

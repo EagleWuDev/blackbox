@@ -1,0 +1,146 @@
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'future';
+            src: url({{ url_for('static', filename='anurati.otf') }});
+        }
+
+        h1 {
+            font-family: future;
+            margin-top: 10vh;
+        }
+
+        .login {
+            height: auto;
+            width: 23vw;
+
+            padding: 3vh;
+            margin-top: 5vh;
+            background: rgba(205, 205, 205, 0.3)
+        }
+
+        .customBtn {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid black;
+            font-size: 1.3em;
+            width: 80%;
+            padding: 10px;
+            color: #FFF;
+        }
+
+        .table {
+            display: none;
+        }
+
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #A9A9A9, #0b0b0b)
+        }
+
+        .input {
+            background: none;
+            border: 1px solid rgba(205, 205, 205, 1);
+            text-align: center;
+            padding: 10px;
+            width: 80%;
+            color: #FFF;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="background"></div>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <center>
+                <h1>B L A C K B O X</h1>
+            </center>
+        </div>
+
+        <div class="col-md-12 loginSection">
+            <center>
+                <div class="login">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="input" name="username" placeholder="U S E R N A M E">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="input" placeholder="P A S S W O R D" name="password">
+                        </div>
+                    </form>
+                    <button class="customBtn" id="enter">E N T E R</button>
+                </div>
+            </center>
+        </div>
+    </div>
+
+    <div class="content table">
+        <div class="col-md-12">
+            <center>
+                <h2>Recent Data</h2>
+                <hr>
+            </center>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Ethereum Transaction Id</th>
+                    <th>Car ID</th>
+                    <th>Ipfs Video Link</th>
+                    <th>Block Timestamp</th>
+                    <th>Model</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+
+                {% for entry in entries %}
+                    <tr>
+                        <td>{{ entry.transactionId }}</td>
+                        <td>{{ entry.carId }}</td>
+                        <td><a target="_blank" href="https://ipfs.io/ipfs/{{ entry.ipfs }}">Ipfs Url</a></td>
+                        <td>{{ entry.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                        <td>Tesla Model S</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+        </div>
+
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    $('#enter').click(function (e) {
+        e.preventDefault();
+        $('.loginSection').fadeOut();
+        $('.background').fadeOut();
+        setTimeout(function () {
+            $('.table').fadeIn();
+        }, 700)
+
+    })
+
+</script>
+</body>
+</html>
