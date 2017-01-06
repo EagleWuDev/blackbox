@@ -36,15 +36,23 @@ const MAX_ACC = 4;
 module.exports = React.createClass({
   getInitialState() {
     return {
-      active: false,
+      // permissions
       cameraPermission: 'undetermined',
       microphonePermission: 'undetermined',
       locationPermission: 'undetermined',
+      // pre collision indices
       accelerometerIndex: 0,
       gyroIndex: 0,
       deviceIndex: 0,
+      // post collision indices
+      accelerometerIndexPost: 0,
+      gyroIndexPost: 0,
+      deviceIndexPost: 0,
+      // boolean toggles
+      active: false,
       watching: false,
       collision: false,
+      // collision data
       collisionStart: ''
     }
   },
@@ -136,7 +144,7 @@ module.exports = React.createClass({
       Gyroscope.stopGyroUpdates();
     }
   },
-  setUpDeviceMonitors() {
+  setUpDeviceMonitors() { // refactor this, it is offensive
     var that = this;
     // accelerometer listener 
     Accelerometer.setAccelerometerUpdateInterval(0.1);
@@ -149,18 +157,21 @@ module.exports = React.createClass({
           z: data.acceleration.z
         };
         that.setState({accelerometerIndex: (that.state.accelerometerIndex+1)%maxCount});
-      } 
+      } else { // data post collision
+        incident[that.state.accelerometerIndexPost] = incident[that.state.accelerometerIndexPost] || {};
+        incident[that.state.accelerometerIndexPost].acceleration = {
+          x: data.acceleration.x,
+          y: data.acceleration.y,
+          z: data.acceleration.z
+        };
+        that.setState({accelerometerIndexPost: that.state.accelerometerIndexPost+1});
+      }
 
       // not currently in a collision and acceleration indicative of possible incident
       if (that.state.collision === false && (data.acceleration.x > MAX_ACC || 
                                              data.acceleration.y > MAX_ACC || 
                                              data.acceleration.z > MAX_ACC)) {
-        that.setState({collision: true, collisionStart: new Date()});
-        Alert.alert('Collision Detected', 'We are have begun recording data on the incident');
-        that.takeVideo();
-        that.toggleWatch();
-        console.log(lastFiveSec)
-        setTimeout(() => that.stopVideo(), 5000); // stop recording 5 sec after start
+        that.collisionProtocol()
       }
     });
     // gyroscope listener
@@ -174,7 +185,15 @@ module.exports = React.createClass({
           z: data.rotationRate.z
         };
         that.setState({gyroIndex: (that.state.gyroIndex+1)%maxCount});
-      } 
+      } else { // data post collision
+        incident[that.state.gyroIndexPost] = incident[that.state.gyroIndexPost] || {};
+        incident[that.state.gyroIndexPost].rotationRate = {
+          x: data.rotationRate.x,
+          y: data.rotationRate.y,
+          z: data.rotationRate.z
+        };
+        that.setState({gyroIndexPost: that.state.gyroIndexPost+1});
+      }
     });
     // device attitude listener
     DeviceAngles.setDeviceMotionUpdateInterval(0.1);
@@ -187,8 +206,27 @@ module.exports = React.createClass({
           yaw: data.yaw
         };
         that.setState({deviceIndex: (that.state.deviceIndex+1)%maxCount});
-      } 
+      } else { // data post collision
+        incident[that.state.deviceIndexPost] = incident[that.state.deviceIndexPost] || {};
+        incident[that.state.deviceIndexPost].deviceAngles = {
+          pitch: data.pitch,
+          roll: data.roll,
+          yaw: data.yaw
+        };
+        that.setState({deviceIndexPost: that.state.deviceIndexPost+1});
+      }
     });
+  },
+  collisionProtocol() {
+    this.setState({collision: true, collisionStart: new Date()});
+    Alert.alert('Collision Detected', 'We are have begun recording data on the incident');
+    this.takeVideo();
+    console.log(lastFiveSec)
+    setTimeout(() => {
+      this.toggleWatch();
+      this.stopVideo();
+      console.log(incident)
+    }, 5000); // stop recording 5 sec after start
   },
   render() {
     return (
